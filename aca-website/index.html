@@ -367,50 +367,53 @@ section.sec{padding-top:120px}
 
 
 /* ===== الهيكل التنظيمي ===== */
-.org-wrap{margin-top:52px;position:relative;border-radius:32px;background:var(--surface);border:1px solid var(--line);padding:56px 40px 48px;overflow:hidden}
-.org-wrap::before{content:"";position:absolute;inset:0;background-image:radial-gradient(var(--line) 1px,transparent 1px);background-size:22px 22px;opacity:.9;pointer-events:none;-webkit-mask-image:radial-gradient(70% 60% at 50% 40%,#000,transparent);mask-image:radial-gradient(70% 60% at 50% 40%,#000,transparent)}
+.org-wrap{margin-top:52px;position:relative;border-radius:32px;background:var(--surface);border:1px solid var(--line);padding:48px 36px 36px;overflow:hidden}
+.org-wrap::before{content:"";position:absolute;inset:0;background-image:radial-gradient(var(--line) 1px,transparent 1px);background-size:22px 22px;pointer-events:none;-webkit-mask-image:radial-gradient(70% 50% at 50% 0%,#000,transparent);mask-image:radial-gradient(70% 50% at 50% 0%,#000,transparent)}
 .org{position:relative}
-.lvl{display:flex;justify-content:center}
-.vl{width:2px;height:34px;margin:0 auto;background:var(--gold);transform:scaleY(0);transform-origin:top;transition:transform .7s var(--ease)}
-.org.in .vl{transform:none}
-.org.in .vl.v1{transition-delay:.35s}.org.in .vl.v2{transition-delay:.75s}.org.in .vl.v3{transition-delay:1.5s}
-.node{all:unset;box-sizing:border-box;cursor:pointer;position:relative;display:flex;align-items:center;gap:12px;background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:14px 16px;text-align:right;box-shadow:0 10px 24px -20px rgba(0,0,0,.4);opacity:0;transform:translateY(16px) scale(.97);transition:opacity .8s var(--ease),transform .8s var(--ease),border-color .4s,box-shadow .5s var(--ease),background .6s var(--ease)}
-.org.in .node{opacity:1;transform:none}
-.node:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--gold) 60%,transparent);box-shadow:var(--shadow-h)}
-.node:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-.node .ic{width:40px;height:40px;border-radius:12px;background:var(--gold-soft);display:grid;place-items:center;flex:none;transition:transform .5s var(--ease)}
-.node:hover .ic{transform:rotate(-6deg) scale(1.06)}
-.node .ic svg{width:19px;height:19px;fill:none;stroke:var(--ink);stroke-width:1.6}
-.node b{display:block;font-weight:500;font-size:15px;line-height:1.45}
-.node small{display:block;font-size:12px;color:var(--mute)}
-.node.head{background:var(--btn);color:var(--btn-ink);border-color:transparent;padding:18px 22px;min-width:300px}
-.node.head .av{width:52px;height:52px;border-radius:50%;background:var(--gold);color:#16171A;display:grid;place-items:center;font-weight:600;font-size:17px;flex:none;box-shadow:0 0 0 4px color-mix(in srgb,var(--gold) 30%,transparent)}
-.node.head b{font-size:18px}
-.node.head small{color:inherit;opacity:.7;font-size:13px}
-.staff-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;max-width:860px;margin:0 auto;position:relative}
-.staff-row::before{content:"";position:absolute;top:50%;right:12%;left:12%;height:0;border-top:2px dashed color-mix(in srgb,var(--gold) 70%,transparent);transform:scaleX(0);transition:transform .8s var(--ease) .55s;z-index:0}
-.org.in .staff-row::before{transform:none}
-.staff-row .node{z-index:1}
-.staff-row .node.staff{justify-self:start;border-style:dashed}
-.staff-row .node.staff:last-child{justify-self:end}
-.staff-row .node.mid{min-width:230px}
-.branch{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;padding-top:34px;position:relative}
-.branch>.node{flex-direction:column;text-align:center;align-items:center;padding:18px 12px;min-height:150px;justify-content:center}
-.branch>.node::before{content:"";position:absolute;top:-35px;left:50%;width:2px;height:34px;margin-left:-1px;background:var(--gold);transform:scaleY(0);transform-origin:top;transition:transform .5s var(--ease) 1.1s}
-.branch>.node::after{content:"";position:absolute;top:-35px;inset-inline:-8px;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .6s var(--ease) .95s}
-.branch>.node:first-child::after{inset-inline-start:50%}
-.branch>.node:last-child::after{inset-inline-end:50%}
-.org.in .branch>.node::before,.org.in .branch>.node::after{transform:none}
-.branch>.node .more{font-size:12px;color:var(--gold);margin-top:2px;opacity:0;transform:translateY(4px);transition:opacity .4s,transform .4s var(--ease)}
-.branch>.node:hover .more{opacity:1;transform:none}
-.offices{max-width:980px;margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:16px 18px;opacity:0;transform:translateY(16px);transition:opacity .8s var(--ease) 1.6s,transform .8s var(--ease) 1.6s}
-.org.in .offices{opacity:1;transform:none}
-.offices>b{font-weight:500;font-size:15px;margin-inline-end:6px;display:flex;align-items:center;gap:8px}
-.offices>b::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold)}
-.city{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;font-size:13.5px;cursor:pointer;transition:background .3s,border-color .3s,transform .4s var(--ease)}
-.city:hover{border-color:var(--gold);transform:translateY(-2px)}
-.city.hq{background:var(--btn);color:var(--btn-ink);border-color:transparent}
+.o-head{display:flex;justify-content:center}
+.o-chief{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:14px;padding:18px 24px 18px 28px;border-radius:20px;background:var(--btn);color:var(--btn-ink);box-shadow:var(--shadow);min-width:320px;transition:transform .5s var(--ease)}
+.o-chief:hover{transform:translateY(-3px)}
+.o-chief .av{width:56px;height:56px;border-radius:50%;background:#fff;display:grid;place-items:center;flex:none;box-shadow:0 0 0 3px var(--gold)}
+.o-chief .av img{width:44px}
+.o-chief b{display:block;font-size:19px;font-weight:600}
+.o-chief small{display:block;font-size:13.5px;opacity:.75}
+.o-stem{width:2px;height:36px;margin:0 auto;background:var(--gold);transform:scaleY(0);transform-origin:top;transition:transform .7s var(--ease) .3s}
+.org.in .o-stem{transform:none}
+.o-bus{height:2px;background:var(--gold);margin:0 8%;transform:scaleX(0);transition:transform .9s var(--ease) .8s}
+.org.in .o-bus{transform:none}
+.o-grid{display:grid;gap:16px;margin-top:26px;grid-template-columns:repeat(3,1fr);grid-template-areas:"g1 g2 g3" "g1 g4 g3" "g1 g5 g6";align-items:start}
+.o-grp{background:var(--bg);border:1px solid var(--line);border-radius:22px;overflow:hidden;opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease),box-shadow .5s}
+.org.in .o-grp{opacity:1;transform:none}
+.o-grp:hover{box-shadow:var(--shadow)}
+.o-grp header{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--surface),transparent)}
+.o-grp .no{flex:none;min-width:52px;height:30px;padding:0 10px;border-radius:9px;background:var(--gold-soft);color:var(--ink);font-size:12.5px;font-weight:600;display:grid;place-items:center}
+.o-grp h3{font-size:16px;font-weight:600;line-height:1.45}
+.o-grp header .cnt{margin-inline-start:auto;font-size:12px;color:var(--mute);white-space:nowrap}
+.o-grp ul{list-style:none;padding:6px}
+.o-item{all:unset;box-sizing:border-box;cursor:pointer;width:100%;display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;font-size:14px;line-height:1.5;transition:background .3s}
+.o-item:hover{background:var(--surface)}
+.o-item:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
+.o-item .ic{width:30px;height:30px;border-radius:9px;background:var(--surface);border:1px solid var(--line);display:grid;place-items:center;flex:none}
+.o-item .ic svg{width:15px;height:15px;fill:none;stroke:var(--gold);stroke-width:1.8}
+.o-item .chev{margin-inline-start:auto;width:14px;height:14px;fill:none;stroke:var(--mute);stroke-width:2;flex:none;transition:transform .4s var(--ease)}
+.o-item:hover .chev{transform:translateX(-3px);stroke:var(--gold)}
+.o-item .tag{font-size:11px;color:var(--gold);border:1px solid color-mix(in srgb,var(--gold) 45%,transparent);border-radius:6px;padding:1px 7px;flex:none}
+.o-sub{padding:0 16px 14px;display:flex;flex-wrap:wrap;gap:6px}
+.o-sub span{font-size:12px;padding:4px 10px;border-radius:8px;background:var(--surface);border:1px solid var(--line);color:var(--ink-2)}
+.o-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:12px}
+.o-stats button{all:unset;box-sizing:border-box;cursor:pointer;text-align:center;padding:14px 6px;border-radius:14px;background:var(--surface);border:1px solid var(--line);transition:border-color .3s,transform .4s var(--ease)}
+.o-stats button:hover{border-color:var(--gold);transform:translateY(-2px)}
+.o-stats b{display:block;font-family:"Inter Tight";font-size:28px;font-weight:500;color:var(--gold);line-height:1.2}
+.o-stats span{font-size:13px}
 .org-note{text-align:center;font-size:12.5px;color:var(--mute);margin-top:22px}
+.dr-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.dr-chips span{font-size:13px;padding:6px 11px;border-radius:9px;background:var(--surface);border:1px solid var(--line)}
+.dr-chips span small{color:var(--mute);font-size:11.5px}
+.dr-body h4{font-size:14px;font-weight:600;margin-top:22px;color:var(--ink-2)}
+.dr-search{width:100%;margin-top:16px;padding:11px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);font-size:14px;outline:none}
+.dr-search:focus{border-color:var(--gold)}
+@media (max-width:1100px){.o-grid{grid-template-columns:1fr 1fr;grid-template-areas:"g1 g2" "g1 g3" "g4 g5" "g6 g6"}.o-bus{margin:0 20%}}
+@media (max-width:700px){.org-wrap{padding:30px 12px 22px;border-radius:24px}.o-chief{min-width:0;width:100%}.o-grid{grid-template-columns:1fr;grid-template-areas:"g1" "g2" "g3" "g4" "g5" "g6"}.o-bus{display:none}}
 /* اللوحة الجانبية */
 .drawer-bg{position:fixed;inset:0;z-index:90;background:rgba(10,10,12,.35);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .5s var(--ease)}
 .drawer{position:fixed;z-index:91;top:12px;bottom:12px;left:12px;width:min(440px,calc(100% - 24px));background:var(--bg);border:1px solid var(--line);border-radius:26px;box-shadow:0 40px 80px -30px rgba(0,0,0,.5);transform:translateX(calc(-100% - 24px));transition:transform .7s var(--ease);display:flex;flex-direction:column;overflow:hidden}
@@ -888,12 +891,12 @@ body.bot-open .bot{opacity:1;pointer-events:auto;transform:none}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow rv">الهيكل التنظيمي</span>
-      <h2 class="h2 split" data-split>هيكل واضح<br><span class="lt">ومسؤوليات محددة</span></h2>
-      <p class="lead rv" style="--d:3">اضغط على أي إدارة أو مكتب لعرض اختصاصاته.</p>
+      <h2 class="h2 split" data-split>التنظيم الداخلي<br><span class="lt">لهيئة الرقابة الإدارية</span></h2>
+      <p class="lead rv" style="--d:3">وفق قرار رئيس الهيئة رقم (1) لسنة 2026م بإعادة التنظيم الداخلي. اضغط على أي مكتب أو إدارة لعرض اختصاصاته.</p>
     </div>
     <div class="org-wrap rv" style="--d:2">
       <div class="org" id="org"></div>
-      <p class="org-note">الإدارات والمكاتب المعروضة للتوضيح، وتُستبدل بالهيكل التنظيمي المعتمد للهيئة.</p>
+      <p class="org-note">المصدر: قرار رئيس هيئة الرقابة الإدارية رقم (1) لسنة 2026م بإعادة التنظيم الداخلي لهيئة الرقابة الإدارية.</p>
     </div>
   </div>
 </section>
@@ -969,7 +972,7 @@ body.bot-open .bot{opacity:1;pointer-events:auto;transform:none}
             <a href="#" aria-label="يوتيوب"><svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.1V8.9l5.8 3.1z"/></svg></a>
           </div>
         </div>
-        <div class="rv" style="--d:1"><h6>الهيئة</h6><ul><li><a href="#about">عن الهيئة</a></li><li><a href="#structure">الهيكل التنظيمي</a></li><li><a href="#">فروع الهيئة</a></li></ul></div>
+        <div class="rv" style="--d:1"><h6>الهيئة</h6><ul><li><a href="#about">عن الهيئة</a></li><li><a href="#structure">الهيكل التنظيمي</a></li><li><a href="#structure">فروع الهيئة</a></li></ul></div>
         <div class="rv" style="--d:2"><h6>المركز الإعلامي</h6><ul><li><a href="#news">الأخبار</a></li><li><a href="#decisions">القرارات</a></li><li><a href="#">معرض الصور</a></li></ul></div>
         <div class="rv" style="--d:3"><h6>تواصل معنا</h6><ul><li><a href="mailto:info@aca.gov.ly">info@aca.gov.ly</a></li><li>www.aca.gov.ly</li><li>طرابلس، دولة ليبيا</li></ul></div>
       </div>
@@ -1140,65 +1143,96 @@ document.documentElement.classList.add('js');
   onScroll();
 
 
-  // ===== الهيكل التنظيمي — عدّل البيانات هنا =====
+  // ===== الهيكل التنظيمي — وفق القرار رقم (1) لسنة 2026م =====
   const I = {
-    head:'<path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9 5.5-.8z"/>',
-    user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/>',
     office:'<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h3M13 7h3M8 11h3M13 11h3M10 21v-4h4v4"/>',
-    media:'<path d="M4 9v6h4l6 4V5L8 9z"/><path d="M18 9a4 4 0 0 1 0 6"/>',
-    eye:'<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+    user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/>',
+    law:'<path d="M12 3v18M5 7h14M7 7l-3 7h6zM17 7l-3 7h6z"/>',
     search:'<circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/>',
     inbox:'<path d="M3 13l3-8h12l3 8v6H3z"/><path d="M3 13h5l1 2h6l1-2h5"/>',
-    law:'<path d="M12 3v18M5 7h14M7 7l-3 7h6zM17 7l-3 7h6z"/>',
-    admin:'<rect x="3" y="6" width="18" height="14" rx="2"/><path d="M8 6V4h8v2M3 12h18"/>',
-    data:'<ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>',
-    map:'<path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>'
+    money:'<circle cx="12" cy="12" r="9"/><path d="M15 9.5c-.5-1-1.6-1.5-3-1.5-1.7 0-3 .9-3 2s1.3 1.7 3 2 3 .9 3 2-1.3 2-3 2c-1.4 0-2.5-.5-3-1.5M12 6v2M12 16v2"/>',
+    chip:'<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/>',
+    check:'<path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>',
+    globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/>',
+    audit:'<path d="M6 3h9l4 4v14H6z"/><path d="M9 12h7M9 16h5"/>',
+    eye:'<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+    contract:'<path d="M6 3h9l4 4v14H6z"/><path d="M9 15l2 2 4-4"/>',
+    gear:'<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>',
+    map:'<path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>',
+    cap:'<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/>'
   };
-  const ORG = [
-    {id:'head', lvl:'head', ic:'head', t:'رئيس الهيئة', s:'السيد عبدالله قادربوه', av:'ع ق', rep:'', p:'يتولى إدارة الهيئة ورسم سياستها العامة، ويُصدر القرارات اللازمة لمباشرة اختصاصاتها، ويشرف على إداراتها ومكاتبها.', l:['اعتماد الخطط الرقابية','إصدار القرارات','تمثيل الهيئة أمام الجهات الرسمية']},
-    {id:'off', lvl:'staff', ic:'office', t:'مكتب رئيس الهيئة', s:'يتبع الرئيس مباشرة', rep:'رئيس الهيئة', p:'يتولى تنظيم أعمال رئيس الهيئة ومتابعة المراسلات والاجتماعات الرسمية.', l:['إدارة المراسلات','تنظيم الاجتماعات','متابعة التكليفات']},
-    {id:'dep', lvl:'mid', ic:'user', t:'وكيل الهيئة', s:'ينوب عن الرئيس', rep:'رئيس الهيئة', p:'يعاون رئيس الهيئة في إدارة أعمالها، ويتابع تنفيذ الخطط، وينوب عنه عند غيابه.', l:['متابعة أداء الإدارات','التنسيق بين الإدارات والمكاتب']},
-    {id:'med', lvl:'staff', ic:'media', t:'المكتب الإعلامي', s:'يتبع الرئيس مباشرة', rep:'رئيس الهيئة', p:'ينشر أخبار الهيئة وقراراتها وبياناتها، ويدير قنوات تواصلها مع الجمهور ووسائل الإعلام.', l:['الأخبار والبيانات الصحفية','الموقع وصفحات التواصل','التغطية الإعلامية']},
-    {id:'d1', lvl:'dept', ic:'eye', t:'إدارة الرقابة', s:'متابعة الأداء', rep:'وكيل الهيئة', p:'تتابع الأداء الإداري والمالي للجهات العامة ومدى التزامها بالقوانين واللوائح.', l:['الزيارات الرقابية','تقارير تقييم الأداء','متابعة تنفيذ التوصيات']},
-    {id:'d2', lvl:'dept', ic:'search', t:'إدارة التحقيق والبحث', s:'المخالفات والوقائع', rep:'وكيل الهيئة', p:'تتولى التحقيق والبحث في الوقائع والمخالفات المالية والإدارية وإعداد نتائجها.', l:['التحقيق في المخالفات','جمع الأدلة والمستندات','إعداد مذكرات الإحالة']},
-    {id:'d3', lvl:'dept', ic:'inbox', t:'إدارة الشكاوى والبلاغات', s:'عبر منظومة رقيب', rep:'وكيل الهيئة', p:'تستقبل البلاغات والشكاوى الواردة عبر منظومة رقيب، وتفرزها وتتابعها حتى إغلاقها.', l:['استقبال البلاغات وفرزها','إحالتها للإدارة المختصة','متابعة حالتها']},
-    {id:'d4', lvl:'dept', ic:'law', t:'إدارة الشؤون القانونية', s:'الرأي القانوني', rep:'وكيل الهيئة', p:'تقدم الرأي القانوني للهيئة، وتراجع القرارات، وتتابع الإجراءات القانونية.', l:['المذكرات القانونية','مراجعة القرارات','متابعة القضايا']},
-    {id:'d5', lvl:'dept', ic:'admin', t:'إدارة الشؤون الإدارية والمالية', s:'الموارد والميزانية', rep:'وكيل الهيئة', p:'تدير شؤون الموظفين والميزانية والخدمات العامة داخل الهيئة.', l:['شؤون الموظفين','الميزانية والحسابات','الخدمات العامة']},
-    {id:'d6', lvl:'dept', ic:'data', t:'إدارة التوثيق والمعلومات', s:'الأنظمة والأرشيف', rep:'وكيل الهيئة', p:'تدير الأنظمة الإلكترونية للهيئة وأرشيفها وبنيتها التقنية وأمن معلوماتها.', l:['تطوير الأنظمة الإلكترونية','الأرشفة الإلكترونية','أمن المعلومات']}
+  const BR = ['طرابلس','العزيزية','شرق طرابلس','غرب طرابلس','جنوب طرابلس','الزاوية|ويضم مكاتب: زوارة، الجميل والعجيلات، صبراتة وصرمان','الجبل الغربي','الأصابعة','ككلة','الزنتان','الشقيقة','المشاشية','مزدة','نسمة','يفرن','جادو','نالوت','الأصالة','المرقب','مسلاتة','ترهونة','بني وليد','مصراتة','زليتن','الجفرة','وادي سبها','وادي الشاطئ|ويضم مكتب القرضة','وادي الشاطئ الغربي','مرزق','وادي الآجال|ويضم مكتب بنت بيه','غات','القطرون','سرت','الخليج'];
+  const OFF = ['باطن الجبل','ربيانة','كاباو'];
+  const UNITS = ['منفذ وازن البري','منفذ رأس جدير البري','منفذ إيسين البري','منفذ الثوم البري','مطار سرت الدولي','مطار مصراتة الدولي','مطار معيتيقة الدولي','مطار سبها الدولي','ميناء مصراتة البحري','ميناء طرابلس البحري','ميناء الخمس البحري','ميناء سرت البحري'];
+  const U = {
+    chief:{ic:'user',t:'رئيس هيئة الرقابة الإدارية',s:'السيد عبدالله محمد قادربوه',rep:'',p:'يتولى إدارة الهيئة، ويُصدر القرارات اللازمة لتنظيم عملها ومباشرة اختصاصاتها، وتتبعه مكاتب رئاسة الهيئة.',l:['إصدار القرارات المنظمة لعمل الهيئة','الإشراف على تقسيمات الهيئة وفروعها','تمثيل الهيئة أمام الجهات الرسمية']},
+    o1:{ic:'office',t:'مكتب رئيس الهيئة',g:'المكاتب التابعة لرئيس الهيئة',p:'يتلقى المكاتبات والتقارير الواردة إلى رئاسة الهيئة، ويعدّ ما يطلبه الرئيس من قرارات ومخاطبات.',l:['تلقي المكاتبات والتقارير الواردة إلى رئاسة الهيئة وعرضها','الإعداد لاجتماعات رئيس الهيئة وتوثيق محاضرها','ترقيم قرارات الرئيس وقيدها وتعميمها','متابعة أعمال الأكاديمية الوطنية للتدريب والتطوير']},
+    o2:{ic:'user',t:'مكتب مستشاري رئيس الهيئة',g:'المكاتب التابعة لرئيس الهيئة',p:'يبحث ويدرس ما يُحال إليه من موضوعات وقوانين ولوائح وقرارات ذات علاقة بعمل الهيئة، ويقدم الرأي الفني والمشورة القانونية.',l:['دراسة الموضوعات والتشريعات المحالة إليه','دراسة موضوعات وقضايا التحقيق المحالة من الرئيس','تقديم الرأي الفني والقانوني']},
+    o3:{ic:'law',t:'مكتب الشؤون القانونية ودراسة التشريعات',g:'المكاتب التابعة لرئيس الهيئة',p:'يُبدي الرأي القانوني في المسائل المعروضة عليه، ويعدّ مشروعات القرارات والقوانين واللوائح المتعلقة بالهيئة.',l:['إبداء الرأي القانوني وإعداد المذكرات القانونية','متابعة الطعون أمام القضاء الإداري والمحكمة العليا','إعداد مشروعات قرارات رئيس الهيئة','إعداد مشروعات القوانين واللوائح والعقود']},
+    o4:{ic:'check',t:'مكتب التفتيش وتقييم الأداء',g:'المكاتب التابعة لرئيس الهيئة',p:'يتولى التفتيش على عمل تقسيمات الهيئة وتقييم أدائها، والكشف عن أوجه القصور وتلافيها.',l:['التفتيش على تقسيمات الهيئة وتقييم أدائها','التفتيش على أعمال الأعضاء والموظفين الفنيين','التفتيش على الأنظمة الرقمية بتقسيمات الهيئة','دراسة الإحصائيات الشهرية للأعضاء والموظفين']},
+    o5:{ic:'inbox',t:'مكتب الشكاوى والبلاغات',g:'المكاتب التابعة لرئيس الهيئة',p:'يتلقى ويفحص الشكاوى والبلاغات المتعلقة بمخالفة القوانين واللوائح والقرارات، بما فيها الواردة عبر منصة «رقيب» الإلكترونية.',l:['تلقي الشكاوى والبلاغات وفحصها','إدارة البلاغات الواردة عبر منصة رقيب وفرزها وتصنيفها','إحالتها إلى التقسيمات المختصة للبحث والمتابعة','متابعة نتائج البحث وإعداد الإحصائيات']},
+    o6:{ic:'money',t:'مكتب متابعة مكافحة غسل الأموال واسترداد الأموال المنهوبة والمهربة',g:'المكاتب التابعة لرئيس الهيئة',p:'يتابع عمليات غسل الأموال وتمويل الإرهاب والجرائم المالية والسيبرانية، وإجراءات استرداد الأموال المنهوبة والمهربة.',l:['قسم مكافحة غسل الأموال وتمويل الإرهاب','قسم مكافحة الجرائم المالية','قسم مكافحة الجرائم السيبرانية (الإلكترونية)','قسم التعاون الدولي والمساعدة القانونية المتبادلة']},
+    o7:{ic:'chip',t:'مكتب الرقابة على الأنظمة الرقمية والمعلوماتية',g:'المكاتب التابعة لرئيس الهيئة',p:'يتابع الأنظمة الرقمية والتحول الرقمي والخدمات الإلكترونية الحكومية ومراكز البيانات وآليات تبادلها.',l:['متابعة المنصات والأنظمة والخدمات الإلكترونية الحكومية','متابعة تطبيق التحول الرقمي في المؤسسات','متابعة مراكز البيانات الوطنية والشبكة الحكومية الآمنة','متابعة تطوير البنية التحتية للاتصالات وتقنية المعلومات']},
+    o8:{ic:'audit',t:'مكتب التقييم الرقابي للحوكمة والامتثال',g:'المكاتب التابعة لرئيس الهيئة',p:'يُعنى بالجانب الوقائي والمعياري، عبر تطوير أدوات الفحص وقياس مستويات الالتزام وفعالية الضبط الداخلي لدى الجهات الخاضعة لرقابة الهيئة.',l:['بناء الأطر المرجعية والمعايير الاسترشادية وقوائم الفحص','تطوير مؤشرات قياس الأداء والامتثال','العمل بالتنسيق مع الإدارات الرقابية لتفادي الازدواجية']},
+    o9:{ic:'globe',t:'مكتب التخطيط والتعاون الدولي',g:'المكاتب التابعة لرئيس الهيئة',p:'يعدّ الخطة السنوية لعمل الهيئة ويتابع تنفيذها، ويتابع علاقات الهيئة الخارجية مع المنظمات والأجهزة النظيرة.',l:['إعداد مقترح الخطة السنوية ومتابعة تنفيذها','إعداد التقرير الفصلي والتقرير السنوي للهيئة','الإشراف على التمثيل الدولي والاتفاقيات ومذكرات التفاهم','متابعة عضوية الهيئة في المنظمات الدولية']},
+    o10:{ic:'audit',t:'مكتب المراجعة الداخلية',g:'المكاتب التابعة لرئيس الهيئة',p:'يتحقق من عمليات الصرف والإنفاق بالهيئة ومدى مطابقتها للتشريعات والنظم المالية والمحاسبية.',l:['مراجعة عمليات الصرف والإنفاق','فحص حسابات العهد والمخازن','التأكد من مسك السجلات المالية والجرد الدوري','إعداد التقارير الدورية حول الصرف والإنفاق']},
+    v:{ic:'user',t:'مكتب وكيل الهيئة',g:'المكاتب',p:'يتلقى المكاتبات والتقارير الواردة إلى وكيل الهيئة، ويتابع نشاط فروع الهيئة ويعدّ التقارير الدورية عنها.',l:['تلقي المكاتبات والتقارير الواردة إلى الوكيل وعرضها','تلقي بريد وتقارير الفروع ودراستها','متابعة نشاط الفروع وحصر احتياجاتها','تذليل الصعوبات التي تواجه الفروع']},
+    t1:{ic:'search',t:'الإدارة العامة للتحقيق',g:'الإدارات العامة الفنية',p:'تباشر التحقيق في المخالفات، والدعوى التأديبية أمام مجالس التأديب، والدعوى الجنائية أمام المحاكم المختصة.',l:['مباشرة الدعوى التأديبية أمام مجالس التأديب','دراسة قرارات المجالس التأديبية وإعداد مذكرات الطعن','اتخاذ الإجراءات التنفيذية للقرارات التأديبية','مباشرة الدعوى الجنائية أمام المحاكم المختصة']},
+    t2:{ic:'contract',t:'الإدارة العامة لفحص العقود ومتابعة تنفيذ المشروعات',g:'الإدارات العامة الفنية',p:'تجري المراجعة القانونية والمالية والفنية المسبقة للعقود، وتتابع مراحل تنفيذ المشروعات العامة.',l:['المراجعة المسبقة للعقود','مراجعة الدفعات المستحقة عن العقود','متابعة تنفيذ المشروعات ومطابقتها للمواصفات والبرامج الزمنية','التحري عن أسباب القصور في التنفيذ']},
+    r1:{ic:'eye',t:'الإدارة العامة للرقابة على مجلس الوزراء',g:'الإدارات العامة الرقابية',p:'تختص بالرقابة على رئاسة الوزراء وكافة الجهات التابعة لها.',l:['إدارة الرقابة على ديوان رئاسة الوزراء','إدارة الرقابة على الجهات التابعة لرئاسة الوزراء']},
+    r2:{ic:'eye',t:'الإدارة العامة للرقابة على القطاعات الخدمية والأمنية',g:'الإدارات العامة الرقابية',p:'تشمل الصحة، والشؤون الاجتماعية، والتعليم بمختلف مراحله، والعدل، والداخلية، والدفاع، والعمل، والخدمة المدنية، والحكم المحلي، والإعلام، والثقافة، والشباب، والرياضة.',l:['إدارة الرقابة على القطاعات الخدمية','إدارة الرقابة على القطاعات الأمنية']},
+    r3:{ic:'money',t:'الإدارة العامة للرقابة على القطاعات الاقتصادية والاستثمار',g:'الإدارات العامة الرقابية',p:'تشمل المالية، والتخطيط، والاقتصاد والتجارة، والسياحة، والقطاع المصرفي، والمؤسسة الليبية للاستثمار، وكافة الاستثمارات الليبية في الداخل والخارج.',l:['إدارة الرقابة على القطاعات الاقتصادية','إدارة الرقابة على قطاع الاستثمار']},
+    r4:{ic:'gear',t:'الإدارة العامة للرقابة على القطاعات الإنتاجية والبنية الأساسية',g:'الإدارات العامة الرقابية',p:'تشمل الصناعة، والزراعة والثروة الحيوانية والبحرية، والمواصلات، والاتصالات، والإسكان والتعمير، والنفط والغاز، والكهرباء، والطاقات المتجددة.',l:['إدارة الرقابة على القطاعات الإنتاجية','إدارة الرقابة على قطاعات البنية الأساسية']},
+    r5:{ic:'globe',t:'الإدارة العامة للرقابة على قطاع الخارجية',g:'الإدارات العامة الرقابية',p:'تشمل وزارة الخارجية والتعاون الدولي، والسفارات والقنصليات والملحقيات الليبية، والجمعيات الليبية العالمية، ومساهمات الدولة في المنظمات الدولية.',l:['إدارة الرقابة على ديوان الوزارة والسفارات والقنصليات','إدارة الرقابة على المنظمات الدولية والجمعيات']},
+    s1:{ic:'admin',t:'الإدارة العامة للشؤون الإدارية والمالية',g:'الإدارات العامة الخدمية',p:'تعدّ مشروع الميزانية العامة للهيئة وتنفذها، وتتولى الشؤون الإدارية والمالية والخدمية للهيئة.',l:['إدارة الشؤون الإدارية','إدارة الشؤون المالية','إدارة الخدمات','إدارة التحري والمعلومات والحماية','إدارة التوثيق وتقنية المعلومات']},
+    a1:{ic:'cap',t:'الأكاديمية الوطنية للتدريب والتطوير',g:'سادساً',p:'تعدّ الدراسات والبرامج التدريبية في مجال الرقابة الإدارية ومكافحة الفساد، وتعمل على تطوير الأداء الإداري والفني بالهيئة.',l:['إعداد الدراسات في مجال الرقابة الإدارية ومكافحة الفساد وغسل الأموال','إعداد وتنفيذ خطط وبرامج التدريب','التعاون الفني مع المؤسسات المناظرة في الداخل والخارج','إقامة الندوات والمؤتمرات وورش العمل']}
+  };
+  I.admin = '<rect x="3" y="6" width="18" height="14" rx="2"/><path d="M8 6V4h8v2M3 12h18"/>';
+  const svg = k => `<svg viewBox="0 0 24 24">${I[k]||I.office}</svg>`;
+  const chev = '<svg class="chev" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>';
+  const item = (id, tag) => `<li><button class="o-item" data-id="${id}"><span class="ic">${svg(U[id].ic)}</span><span>${U[id].t}</span>${tag?`<span class="tag">${tag}</span>`:''}${chev}</button></li>`;
+  const G = [
+    {a:'g1', no:'أولاً', t:'المكاتب', cnt:'11 مكتباً', ids:['o1','o2','o3','o4','o5','o6','o7','o8','o9','o10','v'], tags:{v:'الوكيل'}},
+    {a:'g2', no:'ثانياً', t:'الإدارات العامة الفنية', cnt:'إدارتان', ids:['t1','t2']},
+    {a:'g3', no:'ثالثاً', t:'الإدارات العامة الرقابية', cnt:'5 إدارات', ids:['r1','r2','r3','r4','r5']},
+    {a:'g4', no:'رابعاً', t:'الإدارات العامة الخدمية', cnt:'إدارة عامة', ids:['s1'], sub:['الشؤون الإدارية','الشؤون المالية','الخدمات','التحري والمعلومات والحماية','التوثيق وتقنية المعلومات']},
+    {a:'g5', no:'خامساً', t:'فروع ومكاتب ووحدات الهيئة', stats:true},
+    {a:'g6', no:'سادساً', t:'الأكاديمية الوطنية للتدريب والتطوير', cnt:'', ids:['a1']}
   ];
-  const OFFICES = ['طرابلس','بنغازي','مصراتة','سبها','الزاوية','البيضاء'];
-  const svg = k => `<svg viewBox="0 0 24 24">${I[k]}</svg>`;
-  const nodeHTML = (n, i) => n.lvl === 'head'
-    ? `<button class="node head" data-id="${n.id}" style="transition-delay:${i*90}ms"><span class="av">${n.av}</span><span><b>${n.t}</b><small>${n.s}</small></span></button>`
-    : `<button class="node ${n.lvl}" data-id="${n.id}" style="transition-delay:${(n.lvl==='dept'?900:300)+i*90}ms"><span class="ic">${svg(n.ic)}</span><span><b>${n.t}</b><small>${n.s}</small>${n.lvl==='dept'?'<span class="more">التفاصيل</span>':''}</span></button>`;
-  const by = l => ORG.filter(n => n.lvl === l);
   const orgEl = document.getElementById('org');
-  orgEl.innerHTML =
-    `<div class="lvl">${nodeHTML(by('head')[0],0)}</div><div class="vl v1"></div>` +
-    `<div class="staff-row">${nodeHTML(by('staff')[0],0)}${nodeHTML(by('mid')[0],1)}${nodeHTML(by('staff')[1],2)}</div><div class="vl v2"></div>` +
-    `<div class="branch">${by('dept').map((n,i)=>nodeHTML(n,i)).join('')}</div><div class="vl v3"></div>` +
-    `<div class="offices"><b>مكاتب الهيئة</b>${OFFICES.map((c,i)=>`<button class="city ${i===0?'hq':''}" data-city="${c}">${c}${i===0?' · المقر الرئيسي':''}</button>`).join('')}</div>`;
-  orgEl.querySelectorAll('.branch .node').forEach(n => n.addEventListener('transitionend', () => n.style.transitionDelay = '0ms', {once:true}));
-  orgEl.querySelectorAll('.node').forEach(n => n.addEventListener('transitionend', () => n.style.transitionDelay = '0ms', {once:true}));
-  const orgIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { orgEl.classList.add('in'); orgIO.disconnect(); } }), {threshold:.15});
-  orgIO.observe(orgEl);
+  orgEl.innerHTML = `<div class="o-head"><button class="o-chief" data-id="chief"><span class="av"><img src="${IMGS.logo}" alt=""></span><span><b>رئيس الهيئة</b><small>السيد عبدالله محمد قادربوه</small></span></button></div><div class="o-stem"></div><div class="o-bus"></div>
+    <div class="o-grid">${G.map((g,gi)=>`<section class="o-grp" style="grid-area:${g.a};transition-delay:${1000+gi*110}ms"><header><span class="no">${g.no}</span><h3>${g.t}</h3>${g.cnt?`<span class="cnt">${g.cnt}</span>`:''}</header>
+      ${g.stats?`<div class="o-stats"><button data-list="br"><b>${BR.length}</b><span>فرعاً</span></button><button data-list="off"><b>${OFF.length}</b><span>مكاتب</span></button><button data-list="units"><b>${UNITS.length}</b><span>وحدة بالمنافذ</span></button></div>`
+      :`<ul>${g.ids.map(id=>item(id,(g.tags||{})[id])).join('')}</ul>${g.sub?`<div class="o-sub">${g.sub.map(x=>`<span>${x}</span>`).join('')}</div>`:''}`}</section>`).join('')}</div>`;
+  orgEl.querySelectorAll('.o-grp').forEach(n => n.addEventListener('transitionend', () => n.style.transitionDelay = '0ms', {once:true}));
+  new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { orgEl.classList.add('in'); o.disconnect(); } }), {threshold:.08}).observe(orgEl);
 
   // اللوحة الجانبية
-  const order = ORG.map(n => n.id); let cur = 0, lastFocus = null;
+  const order = ['chief','o1','o2','o3','o4','o5','o6','o7','o8','o9','o10','v','t1','t2','r1','r2','r3','r4','r5','s1','a1']; let cur = 0, lastFocus = null;
   const body = document.getElementById('drBody'), drawer = document.getElementById('drawer');
+  const openDr = () => { if (!document.body.classList.contains('drawer-open')) { lastFocus = document.activeElement; document.body.classList.add('drawer-open'); drawer.setAttribute('aria-hidden','false'); if (lenis) lenis.stop(); setTimeout(() => document.getElementById('drClose').focus(), 300); } };
   const openNode = id => {
-    const n = ORG.find(x => x.id === id); cur = order.indexOf(id);
-    document.getElementById('drPath').textContent = n.rep ? 'يتبع: ' + n.rep : 'قيادة الهيئة';
-    body.innerHTML = `<div class="dr-ic">${svg(n.ic)}</div><h3 id="drTitle">${n.t}</h3><div class="rep">${n.s}</div><p>${n.p}</p><ul>${n.l.map(x=>`<li>${x}</li>`).join('')}</ul>`;
-    if (!document.body.classList.contains('drawer-open')) { lastFocus = document.activeElement; document.body.classList.add('drawer-open'); drawer.setAttribute('aria-hidden','false'); if (lenis) lenis.stop(); setTimeout(() => document.getElementById('drClose').focus(), 300); }
+    const n = U[id]; cur = order.indexOf(id);
+    document.getElementById('drPath').textContent = n.g ? n.g : 'رئاسة الهيئة';
+    body.innerHTML = `<div class="dr-ic">${svg(n.ic)}</div><h3 id="drTitle">${n.t}</h3>${n.s?`<div class="rep">${n.s}</div>`:''}<p>${n.p}</p><h4>${id==='s1'||id==='o6'||id.startsWith('r')?'التقسيمات':'من اختصاصاته'}</h4><ul>${n.l.map(x=>`<li>${x}</li>`).join('')}</ul>`;
+    document.querySelector('.dr-foot').style.display = '';
+    openDr();
   };
-  const openCity = c => {
-    document.getElementById('drPath').textContent = 'مكاتب الهيئة';
-    body.innerHTML = `<div class="dr-ic">${svg('map')}</div><h3 id="drTitle">مكتب ${c}</h3><div class="rep">${c==='طرابلس'?'المقر الرئيسي':'مكتب فرعي'}</div><p>يباشر اختصاصات الهيئة في نطاقه الجغرافي، ويستقبل المراجعين ويتابع أعمال الرقابة في الجهات العامة بالمنطقة.</p><ul><li>العنوان: يُضاف</li><li>الهاتف: يُضاف</li><li>ساعات العمل: يُضاف</li></ul>`;
-    if (!document.body.classList.contains('drawer-open')) { lastFocus = document.activeElement; document.body.classList.add('drawer-open'); drawer.setAttribute('aria-hidden','false'); if (lenis) lenis.stop(); }
+  const openList = k => {
+    const T = {br:['فروع الهيئة', BR.length+' فرعاً','يتشكل كل فرع من مدير للفرع ومن عدد من الأعضاء والموظفين الفنيين والإداريين، ويضم: وحدة التخطيط، ووحدة التوثيق وتقنية المعلومات، ووحدة الأمن والتحري، والإدارات الفنية والرقابية، وإدارة الشؤون الإدارية والمالية.'],
+               off:['مكاتب الهيئة', OFF.length+' مكاتب','تتكون مكاتب الهيئة من مدير المكتب ووحدة الشؤون الإدارية.'],
+               units:['وحدات الهيئة بالمنافذ', UNITS.length+' وحدة','وحدات تابعة للهيئة بالمنافذ البرية والجوية والبحرية، وتتكون وحدة الهيئة من رئيس الوحدة.']}[k];
+    const list = k==='br'?BR:k==='off'?OFF:UNITS;
+    document.getElementById('drPath').textContent = 'خامساً: فروع ومكاتب ووحدات الهيئة';
+    const chips = arr => arr.map(x=>{const [a,b]=x.split('|');return `<span>${k==='br'?'فرع ':''}${a}${b?` <small>(${b})</small>`:''}</span>`}).join('');
+    body.innerHTML = `<div class="dr-ic">${svg('map')}</div><h3 id="drTitle">${T[0]}</h3><div class="rep">${T[1]}</div><p>${T[2]}</p>${k==='br'?'<input class="dr-search" id="brSearch" placeholder="ابحث عن فرع…" aria-label="ابحث عن فرع">':''}<div class="dr-chips" id="drChips">${chips(list)}</div>`;
+    document.querySelector('.dr-foot').style.display = 'none';
+    const sr = document.getElementById('brSearch');
+    if (sr) sr.oninput = () => { const q = sr.value.trim(); document.getElementById('drChips').innerHTML = chips(list.filter(x => x.includes(q))); };
+    openDr();
   };
   const closeDr = () => { document.body.classList.remove('drawer-open'); drawer.setAttribute('aria-hidden','true'); if (lenis) lenis.start(); if (lastFocus) lastFocus.focus(); };
-  orgEl.addEventListener('click', e => { const n = e.target.closest('.node'); if (n) openNode(n.dataset.id); const c = e.target.closest('.city'); if (c) openCity(c.dataset.city); });
+  orgEl.addEventListener('click', e => { const n = e.target.closest('[data-id]'); if (n) return openNode(n.dataset.id); const l = e.target.closest('[data-list]'); if (l) openList(l.dataset.list); });
   document.getElementById('drClose').onclick = closeDr;
   document.getElementById('drBg').onclick = closeDr;
   document.getElementById('drNext').onclick = () => openNode(order[(cur + 1) % order.length]);
@@ -1217,7 +1251,9 @@ document.documentElement.classList.add('js');
     {k:['اختصاص','مهام','دور','شن تدير','عمل الهيئة'], a:'تتابع الهيئة الأداء الإداري والمالي للجهات العامة، وتحقق في الوقائع والمخالفات المالية والإدارية، وتعمل على حماية المصلحة العامة وترسيخ مبادئ النزاهة والشفافية.'},
     {k:['تواصل','اتصال','ايميل','بريد','عنوان','مقر'], a:'يمكنك التواصل مع الهيئة عبر البريد الإلكتروني info@aca.gov.ly، أو من خلال الموقع www.aca.gov.ly. ويقع المقر الرئيسي في طرابلس.'},
     {k:['ايقاف','إيقاف','32','قرار','979','987'], a:'أصدر رئيس الهيئة القرارين رقمي (979) و(987) لسنة 2026م بإيقاف موظفين احتياطياً عن العمل لدواعي ومقتضيات مصلحة التحقيق، إعمالاً لأحكام المادة (32) من القانون رقم (20) لسنة 2013م.', src:'قرارات رئيس الهيئة، 2026م'},
-    {k:['رئيس','قادربوه'], a:'رئيس هيئة الرقابة الإدارية هو السيد عبدالله قادربوه.'}
+    {k:['رئيس','قادربوه'], a:'رئيس هيئة الرقابة الإدارية هو السيد عبدالله محمد قادربوه.'},
+    {k:['هيكل','تنظيم','ادارات','إدارات','مكاتب الهيئة','تقسيمات'], a:'يتكون التنظيم الداخلي للهيئة من: المكاتب التابعة لرئيس الهيئة ومكتب وكيل الهيئة، والإدارات العامة الفنية، والإدارات العامة الرقابية، والإدارات العامة الخدمية، وفروع ومكاتب ووحدات الهيئة، والأكاديمية الوطنية للتدريب والتطوير.', src:'قرار رئيس الهيئة رقم (1) لسنة 2026م'},
+    {k:['فرع','فروع','وحدة','منفذ'], a:'للهيئة 34 فرعاً، و3 مكاتب (باطن الجبل، ربيانة، كاباو)، و12 وحدة بالمنافذ البرية والجوية والبحرية. يمكنك الاطلاع على القائمة الكاملة في قسم الهيكل التنظيمي.', src:'قرار رئيس الهيئة رقم (1) لسنة 2026م'}
   ];
   const norm = t => t.replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي');
   const localAnswer = q => {
