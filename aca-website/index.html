@@ -1163,7 +1163,9 @@ body.menu-open .mm-wm{opacity:.08!important}
 /* v9: أيقونات واقعية + هيدر شفاف عند التمرير */
 .ib-item svg.rl{stroke:none;fill:none;flex:none;filter:drop-shadow(0 1px 1px rgba(0,0,0,.18))}
 .ib-item img.usd{width:26px;height:auto;flex:none;filter:drop-shadow(0 1px 1px rgba(0,0,0,.2))}
-.cover2 h1 .c2-st{font-size:.6em;white-space:nowrap}
+.cover2 h1 .c2-st{white-space:nowrap}
+.cover2 h1 .c2-dash{font-weight:200}
+@media (max-width:900px){.cover2 h1 .c2-dash{display:none}.cover2 h1 .c2-st{display:block}}
 .ib-item svg.oil{width:13px;height:16px}
 .nav{transition:background .45s ease,box-shadow .45s ease,-webkit-backdrop-filter .45s,backdrop-filter .45s,padding .45s}
 .nav .logo{transition:opacity .4s ease,transform .45s cubic-bezier(.2,.7,.2,1),visibility .4s}
@@ -1238,7 +1240,7 @@ body.menu-open .mm-wm{opacity:.08!important}
   <div class="c2-text">
     <div class="wrap">
       <span class="c2-line" aria-hidden="true"></span>
-      <h1 class="c2-a" style="--t:.2s">هيئة الرقابة الإدارية <span class="c2-st">- دولة ليبيا</span></h1>
+      <h1 class="c2-a" style="--t:.2s">هيئة الرقابة الإدارية<span class="c2-dash" aria-hidden="true"> – </span><span class="c2-st">دولة ليبيا</span></h1>
       <p class="c2-a" style="--t:.45s">جهة رقابية وطنية تتابع الأداء الإداري والمالي للجهات العامة في دولة ليبيا،<br>وتعمل على حماية المال العام وترسيخ مبادئ النزاهة والشفافية والمساءلة.</p>
       <button class="c2-down c2-a" id="cvDown" style="--t:.7s" aria-label="انزل للأسفل"><span>اكتشف المزيد</span><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
     </div>
