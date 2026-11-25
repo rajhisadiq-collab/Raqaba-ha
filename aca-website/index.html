@@ -1223,18 +1223,19 @@ body.menu-open .mm-wm{opacity:.13!important;transform:none!important}
 .mm-top{position:absolute}
 @media (max-width:760px){.mm-wm{position:relative!important;left:auto!important;bottom:auto!important;order:99;align-self:flex-end;flex:none;width:min(190px,50vw)!important;margin:34px 0 8px}body.menu-open .mm-wm{opacity:.18!important}}
 
-/* v12: الوضع النهاري — زجاجي بألوان المبنى (بدون أزرق) */
-html:not([data-theme="dark"]) .cover2{background:#EDE8E0;color:#2A2622;isolation:isolate}
-html:not([data-theme="dark"]) .cover2::before{content:"";position:absolute;inset:0;z-index:-2;background:var(--bblur) center 35%/cover no-repeat;transform:scale(1.15)}
-html:not([data-theme="dark"]) .cover2::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(248,245,239,.35),rgba(248,245,239,.62) 55%,rgba(248,245,239,.78));-webkit-backdrop-filter:blur(6px) saturate(1.2);backdrop-filter:blur(6px) saturate(1.2)}
+/* v12b: الوضع النهاري — المبنى كامل والجزء السفلي زجاج مضبب فوق نفس الصورة */
+html:not([data-theme="dark"]) .cover2{--ch:min(78vh,760px);--ov:90px;background:#CFC8BC;color:#22201D;isolation:isolate}
+html:not([data-theme="dark"]) .c2-img{position:absolute;inset:0;height:auto;min-height:0;z-index:-2}
+html:not([data-theme="dark"]) .c2-img img{object-position:55% 22%}
 html:not([data-theme="dark"]) .c2-img::after{display:none}
-html:not([data-theme="dark"]) .c2-img{-webkit-mask-image:linear-gradient(180deg,#000 62%,transparent 100%);mask-image:linear-gradient(180deg,#000 62%,transparent 100%)}
-html:not([data-theme="dark"]) .c2-text{z-index:1}
-html:not([data-theme="dark"]) .cover2 h1{background:linear-gradient(180deg,#7A5A2C,#4E3A1E);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:400}
-html:not([data-theme="dark"]) .cover2 p{color:#3B3630;font-weight:400}
-html:not([data-theme="dark"]) .c2-line{background:linear-gradient(270deg,#8C6A3A,rgba(140,106,58,0))}
-html:not([data-theme="dark"]) .c2-down{color:#5C4526;border-color:rgba(92,69,38,.35);background:rgba(255,255,255,.35);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
-html:not([data-theme="dark"]) .c2-down:hover{background:rgba(255,255,255,.6);border-color:#8C6A3A}
+html:not([data-theme="dark"]) .c2-text{margin-top:0;padding-top:calc(var(--ch) - var(--ov));z-index:1}
+html:not([data-theme="dark"]) .c2-text::before{content:"";position:absolute;inset:calc(var(--ch) - var(--ov) - 170px) 0 0 0;z-index:-1;background:linear-gradient(180deg,rgba(250,248,244,0),rgba(250,248,244,.34) 170px,rgba(250,248,244,.42));-webkit-backdrop-filter:blur(26px) saturate(150%);backdrop-filter:blur(26px) saturate(150%);-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 170px);mask-image:linear-gradient(180deg,transparent 0,#000 170px)}
+html:not([data-theme="dark"]) .cover2 h1{background:linear-gradient(180deg,#2E2C29,#4B4741);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:400}
+html:not([data-theme="dark"]) .cover2 p{color:#2C2925;font-weight:400}
+html:not([data-theme="dark"]) .c2-line{background:linear-gradient(270deg,rgba(40,38,35,.55),rgba(40,38,35,0))}
+html:not([data-theme="dark"]) .c2-down{color:#2C2925;border-color:rgba(40,38,35,.22);background:rgba(255,255,255,.4);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+html:not([data-theme="dark"]) .c2-down:hover{background:rgba(255,255,255,.65);border-color:rgba(40,38,35,.4)}
+@media (max-width:640px){html:not([data-theme="dark"]) .cover2{--ch:max(56vh,340px);--ov:60px}}
 /* القائمة في الوضع النهاري: زجاج بألوان المبنى */
 :root{--mm-bg:linear-gradient(180deg,rgba(250,247,242,.6),rgba(246,242,235,.8)),var(--bblur) center 35%/cover no-repeat;--mm-ink:#221E1A;--mm-mute:#6A6258;--mm-line:rgba(60,45,25,.12);--mm-gold:#8C6A3A;--mm-gold-h:#6E5025;--mm-chip:rgba(255,255,255,.45);--mm-chip-b:rgba(60,45,25,.14)}
 [data-theme="dark"]{--mm-bg:radial-gradient(90% 70% at 90% 0%,#1A2B44 0%,#0F1B2A 55%,#0B1522 100%)}
