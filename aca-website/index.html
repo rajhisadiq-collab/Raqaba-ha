@@ -1185,6 +1185,43 @@ body.menu-open .mm-wm{opacity:.08!important}
   .infobar .ib-g{gap:7px}.infobar{font-size:11px}.ib-item b{font-size:11.5px}
   .ib-item img.usd{width:20px}.ib-item svg.oil{width:11px;height:14px}
 }
+
+/* v11: القائمة حسب الوضع + انسيابية + الشعار */
+:root{--mm-bg:radial-gradient(90% 70% at 90% 0%,#F6EFE1 0%,#FBFAF7 45%,#F4F3EF 100%);--mm-ink:#16202E;--mm-mute:#6B7380;--mm-line:rgba(22,32,46,.09);--mm-gold:#A8842E;--mm-gold-h:#8C6A1C;--mm-chip:rgba(22,32,46,.045);--mm-chip-b:rgba(22,32,46,.1)}
+[data-theme="dark"]{--mm-bg:radial-gradient(90% 70% at 90% 0%,#1A2B44 0%,#0F1B2A 55%,#0B1522 100%);--mm-ink:#F1EADB;--mm-mute:rgba(239,230,207,.5);--mm-line:rgba(239,230,207,.1);--mm-gold:#D4B37E;--mm-gold-h:#E3CBA0;--mm-chip:rgba(255,255,255,.07);--mm-chip-b:rgba(255,255,255,.13)}
+.mmenu,[data-theme="dark"] .mmenu{background:var(--mm-bg)!important;color:var(--mm-ink)!important;transition:clip-path 1s cubic-bezier(.7,0,.25,1),visibility 0s linear 1s;will-change:clip-path}
+body.menu-open .mmenu{transition:clip-path 1s cubic-bezier(.7,0,.25,1),visibility 0s}
+.mm-tools{background:var(--mm-chip)!important;border-color:var(--mm-chip-b)!important}
+.mm-tools i{background:var(--mm-chip-b)!important}
+.mm-t{color:var(--mm-ink)!important}.mm-t svg{stroke:var(--mm-ink)!important}
+.mm-t:hover{background:var(--mm-chip)!important}
+.mm-search{background:var(--mm-chip)!important;border:1px solid var(--mm-chip-b)!important;color:var(--mm-ink)!important;transition:border-color .3s,background .3s}
+.mm-search:focus-within{border-color:var(--mm-gold)!important}
+.mm-search input{color:var(--mm-ink)!important}.mm-search input::placeholder{color:var(--mm-mute)!important}
+.mm-search>svg{stroke:var(--mm-mute)!important}
+.mm-main li,.mm-main li:first-child{border-color:var(--mm-line)!important}
+.mm-tx b{color:var(--mm-ink)!important;font-weight:500!important;letter-spacing:-.01em}
+.mm-tx small{color:var(--mm-mute)!important}
+.mm-ar{stroke:var(--mm-gold)!important}
+.mm-main a{transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1),padding .45s cubic-bezier(.2,.7,.2,1)!important;transition-delay:calc(.35s + var(--i)*.05s)!important;transform:translateY(24px)!important}
+body.menu-open .mm-main a{transform:none!important}
+body:not(.menu-open) .mm-main a{transition-delay:0s!important;transition-duration:.25s!important}
+.mm-main a:hover .mm-tx b{color:var(--mm-gold-h)!important}
+.mm-main a{position:relative}
+.mm-main a::before{content:"";position:absolute;inset-inline-start:0;top:50%;width:3px;height:0;border-radius:3px;background:var(--mm-gold);transform:translateY(-50%);transition:height .35s cubic-bezier(.2,.7,.2,1)}
+.mm-main a:hover::before{height:60%}
+.mm-sub a{color:var(--mm-mute)!important}.mm-sub a:hover{color:var(--mm-gold-h)!important}
+.mm-foot{color:var(--mm-mute)!important;border-color:var(--mm-line)!important}
+body.menu-open .burger{background:var(--mm-chip)!important;border-color:var(--mm-chip-b)!important}
+body.menu-open .burger i{background:var(--mm-ink)!important}
+/* الشعار: كامل، تحت على اليسار */
+.mm-wm{position:fixed!important;left:max(28px,4vw)!important;right:auto!important;bottom:max(28px,4vw)!important;top:auto!important;width:min(300px,42vw)!important;height:auto;opacity:0!important;mix-blend-mode:normal!important;filter:grayscale(1) contrast(1.1)!important;transform:translateY(24px) scale(.96)!important;transition:opacity 1s ease .45s,transform 1.2s cubic-bezier(.2,.7,.2,1) .45s!important;z-index:0}
+[data-theme="dark"] .mm-wm{filter:grayscale(1) brightness(2.4)!important}
+body.menu-open .mm-wm{opacity:.13!important;transform:none!important}
+[data-theme="dark"] body.menu-open .mm-wm,body.menu-open[data-theme="dark"] .mm-wm{opacity:.12!important}
+.mm-body,.mm-top,.mm-sw{position:relative;z-index:2}
+.mm-top{position:absolute}
+@media (max-width:760px){.mm-wm{position:relative!important;left:auto!important;bottom:auto!important;order:99;align-self:flex-end;flex:none;width:min(190px,50vw)!important;margin:34px 0 8px}body.menu-open .mm-wm{opacity:.18!important}}
 </style>
 </head>
 <body>
