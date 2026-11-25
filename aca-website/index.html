@@ -933,19 +933,15 @@ body.bot-open .bot{opacity:1;pointer-events:auto;transform:none}
 
 
 /* ===== شاشة الافتتاح ===== */
-.splash{position:fixed;inset:0;z-index:300;background:radial-gradient(70% 60% at 50% 45%,#23252B,#121317);display:grid;place-items:center;transition:clip-path 1.1s cubic-bezier(.76,0,.24,1);clip-path:inset(0 0 0 0)}
-.splash.out{clip-path:inset(0 0 100% 0)}
-.sp-in{display:flex;flex-direction:column;align-items:center;gap:22px;transition:opacity .5s,transform .8s var(--ease)}
-.splash.out .sp-in{opacity:0;transform:translateY(-40px)}
-.sp-logo{position:relative;width:min(300px,62vw);padding:22px 26px;border-radius:28px;background:#fff;box-shadow:0 0 0 1px rgba(255,255,255,.1),0 40px 80px -30px rgba(0,0,0,.8),0 0 90px -20px rgba(201,162,39,.45);opacity:0;transform:scale(.86);animation:spIn 1s var(--ease) .15s forwards}
+.splash{position:fixed;inset:0;z-index:300;background:#fff;display:grid;place-items:center;transition:opacity .9s var(--ease),visibility .9s}
+.splash.out{opacity:0;visibility:hidden}
+.sp-in{transition:transform 1s var(--ease)}
+.splash.out .sp-in{transform:scale(1.08)}
+.sp-logo{position:relative;width:min(360px,70vw);opacity:0;transform:scale(.9);filter:blur(6px);animation:spIn 1.1s var(--ease) .1s forwards}
 .sp-logo img{width:100%;height:auto;display:block}
-.sp-logo::after{content:"";position:absolute;inset:22px 26px;background:linear-gradient(105deg,transparent 30%,rgba(255,236,170,.95) 46%,#fff 50%,rgba(255,236,170,.95) 54%,transparent 70%);background-size:250% 100%;background-position:150% 0;-webkit-mask:var(--lg) center/contain no-repeat;mask:var(--lg) center/contain no-repeat;mix-blend-mode:screen;animation:spShine 1.5s ease-in-out .9s forwards}
-@keyframes spIn{to{opacity:1;transform:none}}
-@keyframes spShine{to{background-position:-50% 0}}
-.sp-name{color:#E9D9A8;font-size:clamp(20px,3vw,28px);font-weight:500;opacity:0;animation:spIn .9s var(--ease) .6s forwards;transform:translateY(10px)}
-.sp-bar{width:120px;height:2px;border-radius:2px;background:rgba(255,255,255,.12);overflow:hidden;opacity:0;animation:spIn .6s .8s forwards}
-.sp-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#B98F1F,#F1D98C);animation:spLoad 1.5s var(--ease) .9s forwards}
-@keyframes spLoad{to{width:100%}}
+.sp-logo::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(255,240,190,.0) 40%,rgba(255,244,205,.95) 48%,#fff 50%,rgba(255,244,205,.95) 52%,transparent 60%);background-size:300% 100%;background-position:120% 0;-webkit-mask:var(--lg) center/contain no-repeat;mask:var(--lg) center/contain no-repeat;animation:spShine 1.4s ease-in-out .9s forwards}
+@keyframes spIn{to{opacity:1;transform:none;filter:none}}
+@keyframes spShine{to{background-position:-20% 0}}
 body.splashing{overflow:hidden}
 body.splashing .cv-a,body.splashing .qa,body.splashing .cv-img{animation-play-state:paused}
 
@@ -1021,6 +1017,15 @@ body:not(.menu-open) .mm-main a,body:not(.menu-open) .mm-sub li{transition-delay
 @media (max-width:760px){.mmenu{padding:140px 26px 24px}.mm-top{top:84px}.mm-body{flex-direction:column;gap:22px;margin-top:20px}.mm-main a{font-size:30px}.mm-sub{flex-direction:row;flex-wrap:wrap;gap:8px 18px;padding-top:6px}.mm-sub a{font-size:15px}.mm-foot{flex-direction:column;gap:4px}}
 @media (prefers-reduced-motion:reduce){.splash{display:none}.mmenu{transition:none}}
 
+
+.cv-img{object-position:50% 60%!important}
+.cv-shade{background:linear-gradient(180deg,rgba(14,16,22,.78) 0%,rgba(14,16,22,.45) 40%,rgba(14,16,22,.2) 65%,rgba(14,16,22,.7) 100%)!important}
+.cv-sign{position:absolute;z-index:-1;left:7%;bottom:16%;display:flex;align-items:center;gap:14px;padding:14px 22px 14px 16px;border-radius:6px;background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(235,232,224,.88));box-shadow:0 20px 40px -20px rgba(0,0,0,.6),inset 0 1px 0 #fff;transform:perspective(900px) rotateY(14deg);opacity:0;animation:cvIn 1.2s var(--ease) .9s forwards}
+.cv-sign img{height:54px;width:auto}
+.cv-sign span{color:#2A2B30;font-weight:600;font-size:18px;line-height:1.3;border-right:1px solid rgba(0,0,0,.15);padding-right:14px}
+.cv-sign small{display:block;font-family:"Inter Tight";font-weight:500;font-size:10.5px;color:#6b6d73;letter-spacing:.04em}
+@media (max-width:860px){.cv-sign{display:none}}
+
 /* ===== شريط الأخبار ===== */
 .ticker{position:fixed;top:0;inset-inline:0;z-index:55;height:40px;display:flex;align-items:stretch;background:#16171A;color:#EDEDF0;font-size:14px;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.06)}
 [data-theme="dark"] .ticker{background:#202125}
@@ -1060,7 +1065,7 @@ body:not(.menu-open) .mm-main a,body:not(.menu-open) .mm-sub li{transition-delay
 <body>
 
 <div class="splash" id="splash" aria-hidden="true">
-  <div class="sp-in"><div class="sp-logo" id="spLogo"><img data-img="logo" alt=""></div><div class="sp-name">هيئة الرقابة الإدارية</div><div class="sp-bar"><i></i></div></div>
+  <div class="sp-in"><div class="sp-logo" id="spLogo"><img data-img="logo" alt=""></div></div>
 </div>
 <div class="ticker" id="ticker" role="region" aria-label="شريط الأخبار">
   <div class="tk-label"><svg class="tk-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2.2"/><path class="w1" d="M8.5 8.5a5 5 0 0 0 0 7M15.5 8.5a5 5 0 0 1 0 7"/><path class="w2" d="M5.6 5.6a9 9 0 0 0 0 12.8M18.4 5.6a9 9 0 0 1 0 12.8"/></svg><span>الأخبار</span></div>
@@ -1113,7 +1118,7 @@ body:not(.menu-open) .mm-main a,body:not(.menu-open) .mm-sub li{transition-delay
 <main id="top">
 <div class="page home" data-route="" data-title="الرئيسية">
 <section class="cover" id="cover">
-  <img class="cv-img" data-img="m2" alt="">
+  <img class="cv-img" id="cvImg" src="https://images.unsplash.com/photo-1588889802078-67ce0634a6a3?auto=format&fit=crop&w=2200&q=80" alt="مبنى" onerror="this.onerror=null;this.dataset.err=1;window.IMGS&&(this.src=IMGS.m2)">
   <div class="cv-shade"></div>
   <div class="wrap cv-in">
     <span class="cv-kick cv-a" style="--t:.1s"><img data-img="logo" alt="">الموقع الرسمي · دولة ليبيا</span>
@@ -1126,7 +1131,7 @@ body:not(.menu-open) .mm-main a,body:not(.menu-open) .mm-sub li{transition-delay
     </div>
     <div class="qa-row">
       <a class="qa" href="https://raqeb.aca.gov.ly" target="_blank" rel="noopener" style="--t:.7s"><span class="qa-ic"><img data-img="raqeb" alt=""></span><span><b>منظومة رقيب</b><small>تقديم بلاغ أو شكوى</small></span><span class="qa-go"><svg viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></span></a>
-      <a class="qa" href="#/services" data-open-bot style="--t:.8s"><span class="qa-ic"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 7h14M7 7l-3 7h6zM17 7l-3 7h6z"/></svg></span><span><b>المساعد القانوني</b><small>اسأل عن القوانين واللوائح</small></span><span class="qa-go"><svg viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></span></a>
+      <a class="qa" href="#/services" data-open-bot style="--t:.8s"><span class="qa-ic"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 7h14M7 7l-3 7h6zM17 7l-3 7h6z"/></svg></span><span><b>المساعد القانوني</b><small>القوانين واللوائح</small></span><span class="qa-go"><svg viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></span></a>
       <a class="qa" href="#/news" style="--t:.9s"><span class="qa-ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg></span><span><b>المركز الإعلامي</b><small>الأخبار والصور والفيديو</small></span><span class="qa-go"><svg viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></span></a>
       <a class="qa" href="#/contact" style="--t:1s"><span class="qa-ic"><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg></span><span><b>تواصل معنا</b><small>العنوان والهاتف والبريد</small></span><span class="qa-go"><svg viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></span></a>
     </div>
@@ -1575,6 +1580,7 @@ document.documentElement.classList.add('js');
 (() => {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('img[data-img]').forEach(i => i.src = IMGS[i.dataset.img]);
+  const cvI = document.getElementById('cvImg'); if (cvI && (cvI.dataset.err || (cvI.complete && !cvI.naturalWidth))) cvI.src = IMGS.m2;
 
 
   // شريط الأخبار: تكرار المحتوى لحلقة متصلة، والسرعة حسب الطول
@@ -2047,8 +2053,8 @@ document.documentElement.classList.add('js');
     if (reduce || seen || location.hash.length > 2) sp.remove();
     else {
       document.body.classList.add('splashing');
-      setTimeout(() => { sp.classList.add('out'); document.body.classList.remove('splashing'); try { sessionStorage.setItem('aca-splash', 1); } catch (e) {} }, 2700);
-      setTimeout(() => sp.remove(), 3900);
+      setTimeout(() => { sp.classList.add('out'); document.body.classList.remove('splashing'); try { sessionStorage.setItem('aca-splash', 1); } catch (e) {} }, 2500);
+      setTimeout(() => sp.remove(), 3500);
     }
   }
 
