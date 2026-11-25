@@ -1252,6 +1252,19 @@ html:not([data-theme="dark"]) .c2-down:hover{background:rgba(255,255,255,.26)!im
 html:not([data-theme="dark"]) .mmenu{background-attachment:fixed!important}
 html:not([data-theme="dark"]) .mm-search,html:not([data-theme="dark"]) .mm-tools{-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
 html:not([data-theme="dark"]) .mm-wm{filter:grayscale(1) contrast(1.1) brightness(.6)!important}
+
+/* v13: تبديل التاريخين في الجوال */
+@media (max-width:640px){
+  .infobar .dates{display:grid!important;align-items:center;align-content:center;height:100%}
+  .infobar .dates>.ib-item{grid-area:1/1;transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+  .infobar .ib-g.dates:first-child>.ib-sep.ib-sep{display:none!important}
+  .infobar .dates>.hijri{opacity:0;transform:translateY(8px)}
+  .infobar .dates.alt>.ib-item:first-child{opacity:0;transform:translateY(-8px)}
+  .infobar .dates.alt>.hijri{opacity:1;transform:none}
+  .infobar .dates svg{display:inline-block!important;width:13px;height:13px}
+  .infobar .ib-item small{display:inline!important;font-size:10px}
+  .infobar .rates{gap:8px}
+}
 </style>
 </head>
 <body>
@@ -2103,6 +2116,7 @@ document.documentElement.classList.add('js');
   // سعر الدولار (يُحدَّث يدوياً) — سعر النفط من oil.json يحدّثه GitHub Actions تلقائياً
   const USD_RATE = 11.04;
   const OIL_ENDPOINT = "oil.json";
+  const OIL_FALLBACK = 94.50; // يُستخدم لو تعذّر تحميل oil.json
   const today = new Date();
   document.getElementById('ibD').textContent = today.toLocaleDateString('ar-LY', {weekday:'long'});
   document.getElementById('ibG').textContent = today.toLocaleDateString('ar-LY-u-nu-latn', {day:'numeric', month:'long', year:'numeric'}) + 'م';
@@ -2115,8 +2129,11 @@ document.documentElement.classList.add('js');
       if (!d || !d.price) throw 0;
       el.textContent = Number(d.price).toFixed(2);
       if (d.updated) el.parentElement.title = 'سعر خام برنت للبرميل — آخر تحديث: ' + new Date(d.updated).toLocaleString('ar-LY-u-nu-latn');
-    } catch (e) { el.textContent = '—'; }
+    } catch (e) { el.textContent = OIL_FALLBACK.toFixed(2); el.parentElement.title = 'سعر خام برنت للبرميل'; }
   })();
+  // تبديل الميلادي والهجري على الشاشات الصغيرة
+  const dates = document.querySelector('.infobar .dates');
+  if (dates) setInterval(() => { if (matchMedia('(max-width:640px)').matches) dates.classList.toggle('alt'); }, 4000);
 
   // ===== القائمة المنسدلة =====
   document.querySelectorAll('.dd > .mi').forEach(b => b.addEventListener('click', e => {
