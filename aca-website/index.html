@@ -1237,7 +1237,13 @@ html:not([data-theme="dark"]) .cover2 p{color:#2C2925;font-weight:400}
 html:not([data-theme="dark"]) .c2-line{background:linear-gradient(270deg,rgba(40,38,35,.55),rgba(40,38,35,0))}
 html:not([data-theme="dark"]) .c2-down{color:#2C2925;border-color:rgba(40,38,35,.22);background:rgba(255,255,255,.4);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
 html:not([data-theme="dark"]) .c2-down:hover{background:rgba(255,255,255,.65);border-color:rgba(40,38,35,.4)}
-@media (max-width:640px){html:not([data-theme="dark"]) .cover2{--ch:max(62vh,380px);--ov:16px}}
+@media (max-width:640px){
+html:not([data-theme="dark"]) .cover2{--ch:max(60vh,380px);--ov:0px;background:#C9C2B4}
+html:not([data-theme="dark"]) .c2-img{position:relative;inset:auto;height:var(--ch);z-index:0}
+html:not([data-theme="dark"]) .c2-img img{object-position:62% 50%}
+html:not([data-theme="dark"]) .c2-text{margin-top:-46px;padding-top:58px;padding-bottom:52px}
+html:not([data-theme="dark"]) .c2-text::before{inset:0;background:linear-gradient(180deg,rgba(250,248,244,.18),rgba(250,248,244,.34)),var(--bblur) center 85%/cover no-repeat;-webkit-backdrop-filter:none;backdrop-filter:none;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 46px);mask-image:linear-gradient(180deg,transparent 0,#000 46px)}
+}
 /* القائمة في الوضع النهاري: زجاج بألوان المبنى */
 :root{--mm-bg:linear-gradient(180deg,rgba(250,247,242,.6),rgba(246,242,235,.8)),var(--bblur) center 35%/cover no-repeat;--mm-ink:#221E1A;--mm-mute:#6A6258;--mm-line:rgba(60,45,25,.12);--mm-gold:#8C6A3A;--mm-gold-h:#6E5025;--mm-chip:rgba(255,255,255,.45);--mm-chip-b:rgba(60,45,25,.14)}
 [data-theme="dark"]{--mm-bg:radial-gradient(90% 70% at 90% 0%,#1A2B44 0%,#0F1B2A 55%,#0B1522 100%)}
