@@ -1073,6 +1073,32 @@ body.menu-open .mm-sw{opacity:1;transform:none}
 .mm-search>svg{stroke:rgba(239,230,207,.6)!important}
 @media (max-width:640px){.c2-img{height:56vh;min-height:340px}.c2-img img{object-position:58% 30%}.c2-text{margin-top:-60px;padding-bottom:64px}.cover2 p br{display:none}.c2-line{margin-bottom:18px}}
 
+
+/* القائمة: عناوين احترافية */
+.mm-main{gap:0;min-width:min(560px,100%)}
+.mm-main li{overflow:visible;border-bottom:1px solid rgba(239,230,207,.1)}
+.mm-main li:first-child{border-top:1px solid rgba(239,230,207,.1)}
+.mm-main a{display:flex!important;align-items:center;justify-content:space-between;gap:20px;width:100%;padding:11px 4px;font-size:inherit!important;line-height:1.4;opacity:0;transform:translateY(18px)!important;transition:opacity .7s var(--ease),transform .8s var(--ease),padding .4s var(--ease)!important;transition-delay:calc(.3s + var(--i)*.06s)!important}
+body.menu-open .mm-main a{opacity:1;transform:none!important}
+.mm-main a::after{display:none}
+.mm-tx b{display:block;font-size:clamp(21px,2vw,27px);font-weight:400;color:#F1EADB;transition:color .3s}
+.mm-tx small{display:block;font-size:13px;color:rgba(239,230,207,.45);margin-top:2px}
+.mm-ar{width:20px;height:20px;fill:none;stroke:#C9A227;stroke-width:1.6;opacity:0;transform:translateX(10px);transition:opacity .35s,transform .45s var(--ease);flex:none}
+.mm-main a:hover{padding-inline-start:14px}
+.mm-main a:hover .mm-tx b{color:#E2C15A}
+.mm-main a:hover .mm-ar{opacity:1;transform:none}
+.mm-wm{left:auto!important;right:-6vw;bottom:-8vw!important}
+body.menu-open .mm-wm{opacity:.08!important}
+@media (max-width:760px){
+  .mm-top{top:84px;inset-inline:26px 84px!important;justify-content:flex-end}
+  .mm-sw{margin-top:0}
+  .mm-main{min-width:0;width:100%}
+  .mm-main a{padding:13px 2px}
+  .mm-tx b{font-size:21px}.mm-tx small{font-size:12px}
+  .mm-ar{opacity:.6;transform:none;width:17px;height:17px}
+  .mm-wm{width:90vw;right:-25vw;bottom:-20vw!important}
+}
+
 /* ===== شريط الأخبار ===== */
 .ticker{position:fixed;top:0;inset-inline:0;z-index:55;height:40px;display:flex;align-items:stretch;background:#16171A;color:#EDEDF0;font-size:14px;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.06)}
 [data-theme="dark"] .ticker{background:#202125}
@@ -1160,10 +1186,9 @@ body.menu-open .mm-sw{opacity:1;transform:none}
       <input id="siteSearch" type="search" placeholder="ابحث في الموقع: الهيكل التنظيمي، القرارات، رقيب…" aria-label="ابحث في الموقع" autocomplete="off">
       <div class="cv-res" id="siteRes" role="listbox"></div></div></div>
   <div class="mm-body">
-    <ol class="mm-main"><li style="--i:0"><a href="#/"><span class="mm-n">01</span>الرئيسية</a></li><li style="--i:1"><a href="#/about"><span class="mm-n">02</span>عن الهيئة</a></li><li style="--i:2"><a href="#/structure"><span class="mm-n">03</span>الهيكل التنظيمي</a></li><li style="--i:3"><a href="#/news"><span class="mm-n">04</span>المركز الإعلامي</a></li><li style="--i:4"><a href="#/decisions"><span class="mm-n">05</span>القرارات والتقارير</a></li><li style="--i:5"><a href="#/services"><span class="mm-n">06</span>الخدمات الإلكترونية</a></li><li style="--i:6"><a href="#/contact"><span class="mm-n">07</span>تواصل معنا</a></li></ol>
+    <ol class="mm-main"><li style="--i:0"><a href="#/"><span class="mm-tx"><b>الرئيسية</b><small>الصفحة الرئيسية للموقع</small></span><svg class="mm-ar" viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></a></li><li style="--i:1"><a href="#/about"><span class="mm-tx"><b>عن الهيئة</b><small>التعريف والاختصاصات</small></span><svg class="mm-ar" viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></a></li><li style="--i:2"><a href="#/structure"><span class="mm-tx"><b>الهيكل التنظيمي</b><small>المكاتب والإدارات والفروع</small></span><svg class="mm-ar" viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></a></li><li style="--i:3"><a href="#/news"><span class="mm-tx"><b>المركز الإعلامي</b><small>الأخبار والصور والفيديو</small></span><svg class="mm-ar" viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></a></li><li style="--i:4"><a href="#/decisions"><span class="mm-tx"><b>القرارات والتقارير</b><small>القرارات والتشريعات والتقارير</small></span><svg class="mm-ar" viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></a></li><li style="--i:5"><a href="#/services"><span class="mm-tx"><b>الخدمات الإلكترونية</b><small>منظومة رقيب والمساعد القانوني</small></span><svg class="mm-ar" viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></a></li><li style="--i:6"><a href="#/contact"><span class="mm-tx"><b>تواصل معنا</b><small>العنوان والهاتف والبريد</small></span><svg class="mm-ar" viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></a></li></ol>
     <ul class="mm-sub"><li style="--i:0"><a href="#/chairmen">رؤساء الهيئة</a></li><li style="--i:1"><a href="#/media">الصور والفيديو</a></li><li style="--i:2"><a href="#/reports">التقارير السنوية</a></li><li style="--i:3"><a href="#/links">مواقع مهمة</a></li><li style="--i:4"><a href="https://raqeb.aca.gov.ly" target="_blank" rel="noopener">منظومة رقيب</a></li></ul>
   </div>
-  <div class="mm-foot"><span>info@aca.gov.ly</span><span dir="ltr">+218 21 360 7151</span></div>
 </nav>
 
 <main id="top">
