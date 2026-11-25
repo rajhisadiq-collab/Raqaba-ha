@@ -24,11 +24,11 @@
   --f:"IBM Plex Sans Arabic","Inter Tight",system-ui,sans-serif;
 }
 [data-theme="dark"]{
-  --bg:#2A2B30;--surface:#34353B;--surface-2:#3F4047;--ink:#F3F3F5;--ink-2:#C4C6CC;--mute:#9799A0;
-  --line:rgba(255,255,255,.1);--glass:rgba(58,59,66,.66);--glass-b:rgba(255,255,255,.12);
-  --btn:#F3F3F5;--btn-ink:#2A2B30;--gold:#D9B443;--gold-soft:#4A4232;
-  --shadow:0 24px 48px -30px rgba(0,0,0,.5);--shadow-h:0 32px 64px -28px rgba(0,0,0,.6);
-  --overlay:rgba(42,43,48,.84);
+  --bg:#0F1B2A;--surface:#16243A;--surface-2:#1D2E47;--ink:#EEF1F5;--ink-2:#B9C3D0;--mute:#8593A6;
+  --line:rgba(201,168,122,.16);--glass:rgba(22,36,58,.7);--glass-b:rgba(201,168,122,.18);
+  --btn:#C9A87A;--btn-ink:#0F1B2A;--gold:#D4B37E;--gold-soft:#2A3446;
+  --shadow:0 24px 48px -30px rgba(0,0,0,.6);--shadow-h:0 0 0 1px rgba(201,168,122,.22),0 30px 60px -30px rgba(0,0,0,.7);
+  --overlay:rgba(15,27,42,.86);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--ink);font-family:var(--f);font-weight:400;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background .6s var(--ease),color .6s var(--ease)}
@@ -445,7 +445,7 @@ body.drawer-open .drawer-bg{opacity:1;pointer-events:auto}
 
 /* ===== المساعد القانوني (زجاجي) ===== */
 :root{--g-bg:rgba(255,255,255,.58);--g-bd:rgba(255,255,255,.75);--g-in:rgba(255,255,255,.7);--g-bub:rgba(255,255,255,.72);--g-hl:inset 0 1px 0 rgba(255,255,255,.9)}
-[data-theme="dark"]{--g-bg:rgba(52,53,59,.62);--g-bd:rgba(255,255,255,.12);--g-in:rgba(255,255,255,.06);--g-bub:rgba(255,255,255,.07);--g-hl:inset 0 1px 0 rgba(255,255,255,.08)}
+[data-theme="dark"]{--g-bg:rgba(22,36,58,.66);--g-bd:rgba(255,255,255,.12);--g-in:rgba(255,255,255,.06);--g-bub:rgba(255,255,255,.07);--g-hl:inset 0 1px 0 rgba(255,255,255,.08)}
 .bot-fab{position:fixed;z-index:70;left:22px;bottom:22px;height:60px;padding:0 22px 0 8px;border-radius:999px;cursor:pointer;display:flex;align-items:center;gap:12px;color:var(--ink);font-weight:500;font-size:14.5px;background:var(--g-bg);-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);border:1px solid var(--g-bd);box-shadow:var(--g-hl),0 20px 44px -18px rgba(0,0,0,.45);transition:transform .5s var(--ease),opacity .4s;opacity:0;transform:translateY(20px);isolation:isolate}
 .bot-fab::before{content:"";position:absolute;inset:-2px;border-radius:inherit;padding:2px;background:conic-gradient(from var(--a,0deg),#C9A227,transparent 30%,transparent 70%,#C9A227);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spin 4s linear infinite;z-index:-1}
 @property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
@@ -980,7 +980,7 @@ body.splashing .cv-a,body.splashing .qa,body.splashing .cv-img{animation-play-st
 
 /* ===== القائمة الكاملة ===== */
 .burger{display:grid!important;position:relative;z-index:61}
-.mmenu{position:fixed;inset:0;z-index:58;display:flex;flex-direction:column;padding:150px max(28px,6vw) 28px;color:#EFE6CF;background:radial-gradient(80% 70% at 85% 10%,#2B2D35,#14151A 70%);clip-path:circle(0 at var(--mx,6%) var(--my,110px));transition:clip-path .9s cubic-bezier(.76,0,.24,1);overflow:auto;visibility:hidden}
+.mmenu{position:fixed;inset:0;z-index:58;display:flex;flex-direction:column;padding:150px max(28px,6vw) 28px;color:#EFE6CF;background:radial-gradient(80% 70% at 85% 10%,#1A2B44,#0B1522 70%);clip-path:circle(0 at var(--mx,6%) var(--my,110px));transition:clip-path .9s cubic-bezier(.76,0,.24,1);overflow:auto;visibility:hidden}
 body.menu-open .mmenu{clip-path:circle(150% at var(--mx,6%) var(--my,110px));visibility:visible}
 body.menu-open{overflow:hidden}
 body.menu-open .bot-fab{opacity:0;pointer-events:none}
@@ -1045,11 +1045,11 @@ body:not(.menu-open) .mm-main a,body:not(.menu-open) .mm-sub li{transition-delay
 
 
 /* ===== الواجهة: المبنى ثم الاسم ===== */
-.cover2{position:relative;background:#16202B;color:#fff;overflow:hidden}
+.cover2{position:relative;background:#0F1B2A;color:#fff;overflow:hidden}
 .c2-img{position:relative;height:min(78vh,760px);min-height:440px;overflow:hidden}
 .c2-img img{width:100%;height:100%;object-fit:cover;object-position:55% 30%;transform:scale(1.1);animation:c2Zoom 3.2s cubic-bezier(.16,1,.3,1) forwards}
 @keyframes c2Zoom{to{transform:scale(1)}}
-.c2-img::after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(180deg,rgba(22,32,43,0),rgba(22,32,43,.65) 60%,#16202B)}
+.c2-img::after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(180deg,rgba(15,27,42,0),rgba(15,27,42,.65) 60%,#0F1B2A)}
 .c2-text{position:relative;margin-top:-90px;padding:0 0 90px}
 .c2-text .wrap{text-align:right}
 .c2-line{display:block;height:1px;width:0;background:linear-gradient(270deg,#B8956A,rgba(184,149,106,0));margin-bottom:26px;animation:c2Line 1.4s cubic-bezier(.16,1,.3,1) .1s forwards}
@@ -1099,9 +1099,27 @@ body.menu-open .mm-wm{opacity:.08!important}
   .mm-wm{width:90vw;right:-25vw;bottom:-20vw!important}
 }
 
+
+/* ===== الوضع الليلي: كحلي وذهبي ===== */
+[data-theme="dark"] h1,[data-theme="dark"] h2,[data-theme="dark"] .sh h2,[data-theme="dark"] .h2{color:#E3CBA0}
+[data-theme="dark"] .h2 .lt{color:#8593A6}
+[data-theme="dark"] .infobar{background:#0C1724}
+[data-theme="dark"] .nav{background:rgba(15,27,42,.9)}
+[data-theme="dark"] .mi.on{background:rgba(201,168,122,.16);color:#E3CBA0}
+[data-theme="dark"] .home section.sec.band{background:#132136}
+[data-theme="dark"] .nc,[data-theme="dark"] .s2,[data-theme="dark"] .ncard,[data-theme="dark"] .card,[data-theme="dark"] .lk,[data-theme="dark"] .tile,[data-theme="dark"] .c-card{box-shadow:none}
+[data-theme="dark"] img:not([data-img="logo"]):not([data-img="raqeb"]){filter:brightness(.9) saturate(.92)}
+[data-theme="dark"] .cover2,[data-theme="dark"] .c2-img::after{--x:0}
+[data-theme="dark"] .cover2{background:#0F1B2A}
+[data-theme="dark"] .c2-img::after{background:linear-gradient(180deg,rgba(15,27,42,0),rgba(15,27,42,.65) 60%,#0F1B2A)}
+[data-theme="dark"] .s2-btn,[data-theme="dark"] .rq2 .s2-btn{color:#0F1B2A}
+[data-theme="dark"] .rq2 .s2-btn{background:#C9A87A}
+[data-theme="dark"] .foot{border-top:1px solid var(--line)}
+[data-theme="dark"] .mmenu{background:radial-gradient(80% 70% at 85% 10%,#1A2B44,#0B1522 70%)}
+
 /* ===== شريط الأخبار ===== */
 .ticker{position:fixed;top:0;inset-inline:0;z-index:55;height:40px;display:flex;align-items:stretch;background:#16171A;color:#EDEDF0;font-size:14px;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.06)}
-[data-theme="dark"] .ticker{background:#202125}
+[data-theme="dark"] .ticker{background:#0A1420}
 .tk-label{flex:none;align-self:stretch;display:flex;align-items:center;gap:8px;margin:0;padding:0 18px;border-radius:0;background:#C8102E;color:#fff;font-weight:700;font-size:14px;letter-spacing:0;position:relative;z-index:2;overflow:hidden;box-shadow:inset 0 -3px 0 rgba(0,0,0,.18)}
 .tk-label::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);animation:tkShine 3.5s ease-in-out infinite}
 @keyframes tkShine{0%,60%{left:-60%}100%{left:130%}}
