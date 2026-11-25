@@ -904,6 +904,48 @@ body.bot-open .bot{opacity:1;pointer-events:auto;transform:none}
 .mp-in svg{width:9px;height:9px;fill:none;stroke:#16171A;stroke-width:2.4}
 @media (max-width:760px){.svc2{grid-template-columns:1fr}.s2-vis{height:230px}.mini-ph{transform:translateY(14px) scale(.9);transform-origin:bottom}}
 
+
+/* ===== الواجهة الكاملة ===== */
+.nav{background:color-mix(in srgb,var(--bg) 92%,transparent);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--line)}
+.cover{position:relative;min-height:max(680px,100vh);display:flex;align-items:center;color:#fff;overflow:hidden;isolation:isolate;padding:170px 0 90px}
+.cv-img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:50% 35%;transform:scale(1.12);animation:cvZoom 2.6s var(--ease) forwards}
+@keyframes cvZoom{to{transform:scale(1.02)}}
+.cv-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(12,13,16,.55) 0%,rgba(12,13,16,.35) 35%,rgba(12,13,16,.82) 100%),radial-gradient(60% 50% at 50% 45%,rgba(12,13,16,.25),transparent)}
+.cv-in{text-align:center;display:flex;flex-direction:column;align-items:center}
+.cv-a,.qa{opacity:0;transform:translateY(26px);animation:cvIn 1s var(--ease) var(--t,0s) forwards}
+@keyframes cvIn{to{opacity:1;transform:none}}
+.cv-kick{display:inline-flex;align-items:center;gap:10px;padding:6px 16px 6px 6px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);font-size:13.5px}
+.cv-kick img{width:34px;height:34px;border-radius:50%;background:#fff;object-fit:contain;padding:3px}
+.cover h1{font-size:clamp(40px,6vw,84px);font-weight:600;line-height:1.2;margin-top:22px;text-shadow:0 6px 40px rgba(0,0,0,.4)}
+.cover p{font-size:clamp(16px,1.6vw,21px);opacity:.88;margin-top:12px;max-width:640px}
+.cv-search{position:relative;z-index:20;width:min(640px,100%);margin-top:32px;display:flex;align-items:center;gap:10px;padding:6px 8px 6px 20px;border-radius:999px;background:rgba(255,255,255,.96);box-shadow:0 24px 50px -20px rgba(0,0,0,.6);color:#16171A}
+.cv-search>svg{width:20px;height:20px;fill:none;stroke:#8B8D94;stroke-width:2;flex:none;margin-right:12px}
+.cv-search input{flex:1;min-width:0;border:0;outline:0;background:transparent;font-size:15.5px;padding:12px 0;color:#16171A}
+.cv-res{position:absolute;top:calc(100% + 8px);inset-inline:0;background:#fff;border-radius:20px;box-shadow:0 30px 60px -20px rgba(0,0,0,.5);padding:6px;text-align:right;display:none;max-height:320px;overflow:auto;z-index:5}
+.cv-res.open{display:block}
+.cv-res a{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 14px;border-radius:12px;font-size:14.5px;color:#16171A}
+.cv-res a:hover,.cv-res a.hl{background:#F3F2EE}
+.cv-res a small{font-size:12px;color:#8B8D94}
+.cv-res .none{padding:14px;font-size:14px;color:#6B6D73}
+.qa-row{margin-top:40px;width:100%;max-width:1060px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.qa{display:flex;align-items:center;gap:12px;padding:16px;border-radius:20px;text-align:right;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);-webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%);color:#fff;cursor:pointer;transition:background .4s,border-color .4s,translate .5s var(--ease)}
+.qa:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.4);translate:0 -4px}
+.qa-ic{width:46px;height:46px;border-radius:14px;background:#fff;display:grid;place-items:center;flex:none;overflow:hidden}
+.qa-ic img{width:42px;height:auto}
+.qa-ic svg{width:22px;height:22px;fill:none;stroke:#16171A;stroke-width:1.7}
+.qa:nth-child(2) .qa-ic{background:linear-gradient(135deg,#E2C15A,#B98F1F)}
+.qa b{display:block;font-size:15.5px;font-weight:600}
+.qa small{font-size:12.5px;opacity:.75}
+.qa-go{margin-inline-start:auto;width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;flex:none;transition:transform .4s var(--ease)}
+.qa-go svg{width:13px;height:13px;fill:none;stroke:#fff;stroke-width:2}
+.qa:hover .qa-go{transform:translateX(-4px)}
+.cv-down{position:absolute;bottom:26px;left:50%;translate:-50% 0;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#fff;display:grid;place-items:center;cursor:pointer;animation:bob 2.4s var(--ease-io) infinite}
+.cv-down svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:2}
+@keyframes bob{50%{transform:translateY(7px)}}
+@media (max-width:1000px){.qa-row{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.cover{padding:140px 0 80px;min-height:100svh}.qa-row{gap:10px;margin-top:28px}.qa{flex-direction:column;align-items:flex-start;gap:8px;padding:14px}.qa-go{display:none}.qa small{display:none}.qa b{font-size:14px}.cv-search input{font-size:14px}}
+@media (prefers-reduced-motion:reduce){.cv-a,.qa,.cv-img{animation:none;opacity:1;transform:none}}
+
 /* ===== شريط الأخبار ===== */
 .ticker{position:fixed;top:0;inset-inline:0;z-index:55;height:40px;display:flex;align-items:stretch;background:#16171A;color:#EDEDF0;font-size:14px;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.06)}
 [data-theme="dark"] .ticker{background:#202125}
@@ -993,30 +1035,26 @@ body.bot-open .bot{opacity:1;pointer-events:auto;transform:none}
 
 <main id="top">
 <div class="page home" data-route="" data-title="الرئيسية">
-<section class="hero">
-  <div class="wrap">
-    <div class="hs-frame rv rv-scale" style="--base:850ms">
-    <div class="hero-card" id="hs" role="region" aria-roledescription="سلايدر" aria-label="أهم الأخبار" tabindex="0">
-      <div class="hs-track" id="hsTrack">
-        <article class="hs-slide on" aria-roledescription="شريحة" aria-label="1 من 3">
-          <img data-img="m1" alt="" draggable="false">
-          <div class="hs-cap"><div class="hs-meta"><span class="hs-tag">أخبار</span><time>الأحد 22 نوفمبر 2026م</time></div><h2>رئيس الهيئة يلتقي رئيس المجلس الأعلى للدولة ومحافظ مصرف ليبيا المركزي</h2><p>لقاء بمقر ديوان المجلس الأعلى للدولة لمتابعة الملفات الاقتصادية والمالية والتحديات المرتبطة بإدارة المال العام.</p><a class="hs-read" href="#/news" draggable="false">اقرأ الخبر <span><svg viewBox="0 0 12 12"><path d="M9 6H3M5.5 3.5L3 6l2.5 2.5"/></svg></span></a></div>
-        </article>
-        <article class="hs-slide" aria-roledescription="شريحة" aria-label="2 من 3">
-          <img data-img="m2" alt="" draggable="false">
-          <div class="hs-cap"><div class="hs-meta"><span class="hs-tag">أخبار</span><time>الأحد 22 نوفمبر 2026م</time></div><h2>رئيس الهيئة يلتقي مجلس قبائل المشاشية في إطار التواصل مع المكونات الاجتماعية</h2><p>أكد رئيس الهيئة أهمية انفتاح المؤسسات الرقابية على المجتمع وترسيخ مبادئ النزاهة والشفافية.</p><a class="hs-read" href="#/news" draggable="false">اقرأ الخبر <span><svg viewBox="0 0 12 12"><path d="M9 6H3M5.5 3.5L3 6l2.5 2.5"/></svg></span></a></div>
-        </article>
-        <article class="hs-slide" aria-roledescription="شريحة" aria-label="3 من 3">
-          <img data-img="dec" alt="" draggable="false">
-          <div class="hs-cap"><div class="hs-meta"><span class="hs-tag dec">قرارات</span><time>نوفمبر 2026م</time></div><h2>إيقاف موظفين احتياطياً عن العمل لدواعي ومقتضيات مصلحة التحقيق</h2><p>صدر القراران رقم (979) و(987) لسنة 2026م إعمالاً لأحكام المادة (32) من القانون رقم (20) لسنة 2013م.</p><a class="hs-read" href="#/news" draggable="false">اقرأ الخبر <span><svg viewBox="0 0 12 12"><path d="M9 6H3M5.5 3.5L3 6l2.5 2.5"/></svg></span></a></div>
-        </article>
-      </div>
-      <div class="hs-top"><div class="hs-bars" id="hsBars"><button aria-label="الخبر 1"><i></i></button><button aria-label="الخبر 2"><i></i></button><button aria-label="الخبر 3"><i></i></button></div><div class="hs-count"><b id="hsCur">01</b> / 03</div></div>
-      <div class="hs-nav"><button id="hsPrev" aria-label="الخبر السابق"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button><button id="hsNext" aria-label="الخبر التالي"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button></div>
-      <div class="hs-hint" id="hsHint"><svg viewBox="0 0 24 24"><path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V12m0-1.5a1.5 1.5 0 0 1 3 0V12m0-.5a1.5 1.5 0 0 1 3 0V14a6 6 0 0 1-6 6h-1a6 6 0 0 1-5-2.7L3.5 14a1.5 1.5 0 0 1 2.5-1.6L8 15"/></svg>اسحب لتصفح الأخبار</div>
+<section class="cover" id="cover">
+  <img class="cv-img" data-img="m2" alt="">
+  <div class="cv-shade"></div>
+  <div class="wrap cv-in">
+    <span class="cv-kick cv-a" style="--t:.1s"><img data-img="logo" alt="">الموقع الرسمي · دولة ليبيا</span>
+    <h1 class="cv-a" style="--t:.25s">هيئة الرقابة الإدارية</h1>
+    <p class="cv-a" style="--t:.4s">نحو مؤسسات عامة أكثر نزاهة وشفافية، وحماية للمال العام.</p>
+    <div class="cv-search cv-a" style="--t:.55s" role="search">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      <input id="siteSearch" type="search" placeholder="ابحث في الموقع: الهيكل التنظيمي، القرارات، رقيب…" aria-label="ابحث في الموقع" autocomplete="off">
+      <div class="cv-res" id="siteRes" role="listbox"></div>
     </div>
+    <div class="qa-row">
+      <a class="qa" href="https://raqeb.aca.gov.ly" target="_blank" rel="noopener" style="--t:.7s"><span class="qa-ic"><img data-img="raqeb" alt=""></span><span><b>منظومة رقيب</b><small>تقديم بلاغ أو شكوى</small></span><span class="qa-go"><svg viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></span></a>
+      <a class="qa" href="#/services" data-open-bot style="--t:.8s"><span class="qa-ic"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 7h14M7 7l-3 7h6zM17 7l-3 7h6z"/></svg></span><span><b>المساعد القانوني</b><small>اسأل عن القوانين واللوائح</small></span><span class="qa-go"><svg viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></span></a>
+      <a class="qa" href="#/news" style="--t:.9s"><span class="qa-ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg></span><span><b>المركز الإعلامي</b><small>الأخبار والصور والفيديو</small></span><span class="qa-go"><svg viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></span></a>
+      <a class="qa" href="#/contact" style="--t:1s"><span class="qa-ic"><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg></span><span><b>تواصل معنا</b><small>العنوان والهاتف والبريد</small></span><span class="qa-go"><svg viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></span></a>
     </div>
   </div>
+  <button class="cv-down" id="cvDown" aria-label="انزل للأسفل"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
 </section>
 <section class="sec band" id="home-news">
   <div class="wrap">
@@ -1051,13 +1089,6 @@ body.bot-open .bot{opacity:1;pointer-events:auto;transform:none}
         </a>
       </div>
     </div>
-  </div>
-</section>
-<section class="sec" id="home-media">
-  <div class="wrap">
-    <div class="sh rv"><span class="sh-tag">المركز الإعلامي</span><h2>الصور والفيديو</h2><i class="sh-line"></i><a class="sh-more" href="#/media">معرض الوسائط <svg viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></a></div>
-
-    <div class="media-grid"><button class="m-item big rv" style="--d:0" data-img-src="m2" data-cap="لقاء رئيس الهيئة مع مجلس قبائل المشاشية بمقر ديوان الهيئة"><img data-img="m2" alt="لقاء رئيس الهيئة مع مجلس قبائل المشاشية بمقر ديوان الهيئة"><span class="m-cap"><span class="m-type">صورة</span>لقاء رئيس الهيئة مع مجلس قبائل المشاشية بمقر ديوان الهيئة</span></button><button class="m-item rv" style="--d:1" data-img-src="m1" data-cap="لقاء رئيس الهيئة برئيس المجلس الأعلى للدولة ومحافظ المصرف المركزي"><img data-img="m1" alt="لقاء رئيس الهيئة برئيس المجلس الأعلى للدولة ومحافظ المصرف المركزي"><span class="m-cap"><span class="m-type">صورة</span>لقاء رئيس الهيئة برئيس المجلس الأعلى للدولة ومحافظ المصرف المركزي</span></button><button class="m-item rv" style="--d:2" data-img-src="dec" data-cap="قرارات الهيئة"><img data-img="dec" alt="قرارات الهيئة"><span class="m-cap"><span class="m-type">صورة</span>قرارات الهيئة</span></button><div class="m-item vid rv" style="--d:3"><span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><span class="m-cap"><span class="m-type">فيديو</span>يُضاف رابط الفيديو من صفحة الهيئة</span></div><div class="m-item vid rv" style="--d:4"><span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><span class="m-cap"><span class="m-type">فيديو</span>يُضاف رابط الفيديو من صفحة الهيئة</span></div></div>
   </div>
 </section>
 <section class="sec band" id="home-services">
@@ -1098,21 +1129,13 @@ body.bot-open .bot{opacity:1;pointer-events:auto;transform:none}
     </div>
   </div>
 </section>
-<section class="sec" id="home-ads">
+<section class="sec" id="home-media">
   <div class="wrap">
-    <div class="sh rv"><span class="sh-tag">إعلانات</span><h2>توعية وأخبار التقنية</h2><i class="sh-line"></i></div>
+    <div class="sh rv"><span class="sh-tag">المركز الإعلامي</span><h2>الصور والفيديو</h2><i class="sh-line"></i><a class="sh-more" href="#/media">معرض الوسائط <svg viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></a></div>
 
-  </div>
-  <div class="ads rv"><div class="ads-track" id="adsTrack"><div class="ad tech"><span class="ad-ic"><svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><div><span class="ad-tag">تقنية</span><b>احمِ حساباتك الرقمية</b><p>فعّل التحقق بخطوتين، ولا تشارك رمز التحقق مع أي جهة.</p></div></div><div class="ad warn"><span class="ad-ic"><svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17v.5"/></svg></span><div><span class="ad-tag">توعية</span><b>احذر رسائل التصيّد</b><p>لا تفتح الروابط المجهولة، وتأكد من عنوان الموقع قبل إدخال بياناتك.</p></div></div><div class="ad tech"><span class="ad-ic"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.3-5.7M4 4v4h4"/></svg></span><div><span class="ad-tag">تقنية</span><b>حدّث أجهزتك باستمرار</b><p>التحديثات تسد الثغرات الأمنية في الأنظمة والتطبيقات.</p></div></div><div class="ad gold"><span class="ad-ic"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H8l-4 4z"/></svg></span><div><span class="ad-tag">خدمة</span><b>بلّغ عبر منظومة رقيب</b><p>شاهدت مخالفة إدارية أو مالية؟ قدّم بلاغك إلكترونياً.</p></div></div><div class="ad dark"><span class="ad-ic"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 7h14M7 7l-3 7h6zM17 7l-3 7h6z"/></svg></span><div><span class="ad-tag">جديد</span><b>المساعد القانوني</b><p>اسأل عن القوانين واللوائح المنظمة لعمل الهيئة.</p></div></div><div class="ad warn"><span class="ad-ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/></svg></span><div><span class="ad-tag">توعية</span><b>النزاهة مسؤولية الجميع</b><p>الحفاظ على المال العام واجب على كل موظف ومواطن.</p></div></div></div></div>
-</section>
-<section class="sec band" id="home-links">
-  <div class="wrap">
-    <div class="sh rv"><span class="sh-tag">روابط</span><h2>مواقع مهمة</h2><i class="sh-line"></i><a class="sh-more" href="#/links">كل المواقع <svg viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></a></div>
-
-    <div class="links-grid" data-links></div>
+    <div class="media-grid"><button class="m-item big rv" style="--d:0" data-img-src="m2" data-cap="لقاء رئيس الهيئة مع مجلس قبائل المشاشية بمقر ديوان الهيئة"><img data-img="m2" alt="لقاء رئيس الهيئة مع مجلس قبائل المشاشية بمقر ديوان الهيئة"><span class="m-cap"><span class="m-type">صورة</span>لقاء رئيس الهيئة مع مجلس قبائل المشاشية بمقر ديوان الهيئة</span></button><button class="m-item rv" style="--d:1" data-img-src="m1" data-cap="لقاء رئيس الهيئة برئيس المجلس الأعلى للدولة ومحافظ المصرف المركزي"><img data-img="m1" alt="لقاء رئيس الهيئة برئيس المجلس الأعلى للدولة ومحافظ المصرف المركزي"><span class="m-cap"><span class="m-type">صورة</span>لقاء رئيس الهيئة برئيس المجلس الأعلى للدولة ومحافظ المصرف المركزي</span></button><button class="m-item rv" style="--d:2" data-img-src="dec" data-cap="قرارات الهيئة"><img data-img="dec" alt="قرارات الهيئة"><span class="m-cap"><span class="m-type">صورة</span>قرارات الهيئة</span></button><div class="m-item vid rv" style="--d:3"><span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><span class="m-cap"><span class="m-type">فيديو</span>يُضاف رابط الفيديو من صفحة الهيئة</span></div><div class="m-item vid rv" style="--d:4"><span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><span class="m-cap"><span class="m-type">فيديو</span>يُضاف رابط الفيديو من صفحة الهيئة</span></div></div>
   </div>
 </section>
-
 </div>
 <div class="page" data-route="about" data-title="عن الهيئة" hidden>
 <div class="wrap"><nav class="crumbs" aria-label="مسار الصفحة"><a href="#/">الرئيسية</a><span>‹</span><b>عن الهيئة</b></nav></div>
@@ -1219,6 +1242,29 @@ body.bot-open .bot{opacity:1;pointer-events:auto;transform:none}
 </div>
 <div class="page" data-route="news" data-title="الأخبار" hidden>
 <div class="wrap"><nav class="crumbs" aria-label="مسار الصفحة"><a href="#/">الرئيسية</a><span>‹</span><a href="#/news">المركز الإعلامي</a><span>‹</span><b>الأخبار</b></nav></div>
+<section class="sec" style="padding-top:20px"><div class="wrap">
+    <div class="hs-frame rv rv-scale" style="--base:850ms">
+    <div class="hero-card" id="hs" role="region" aria-roledescription="سلايدر" aria-label="أهم الأخبار" tabindex="0">
+      <div class="hs-track" id="hsTrack">
+        <article class="hs-slide on" aria-roledescription="شريحة" aria-label="1 من 3">
+          <img data-img="m1" alt="" draggable="false">
+          <div class="hs-cap"><div class="hs-meta"><span class="hs-tag">أخبار</span><time>الأحد 22 نوفمبر 2026م</time></div><h2>رئيس الهيئة يلتقي رئيس المجلس الأعلى للدولة ومحافظ مصرف ليبيا المركزي</h2><p>لقاء بمقر ديوان المجلس الأعلى للدولة لمتابعة الملفات الاقتصادية والمالية والتحديات المرتبطة بإدارة المال العام.</p><a class="hs-read" href="#/news" draggable="false">اقرأ الخبر <span><svg viewBox="0 0 12 12"><path d="M9 6H3M5.5 3.5L3 6l2.5 2.5"/></svg></span></a></div>
+        </article>
+        <article class="hs-slide" aria-roledescription="شريحة" aria-label="2 من 3">
+          <img data-img="m2" alt="" draggable="false">
+          <div class="hs-cap"><div class="hs-meta"><span class="hs-tag">أخبار</span><time>الأحد 22 نوفمبر 2026م</time></div><h2>رئيس الهيئة يلتقي مجلس قبائل المشاشية في إطار التواصل مع المكونات الاجتماعية</h2><p>أكد رئيس الهيئة أهمية انفتاح المؤسسات الرقابية على المجتمع وترسيخ مبادئ النزاهة والشفافية.</p><a class="hs-read" href="#/news" draggable="false">اقرأ الخبر <span><svg viewBox="0 0 12 12"><path d="M9 6H3M5.5 3.5L3 6l2.5 2.5"/></svg></span></a></div>
+        </article>
+        <article class="hs-slide" aria-roledescription="شريحة" aria-label="3 من 3">
+          <img data-img="dec" alt="" draggable="false">
+          <div class="hs-cap"><div class="hs-meta"><span class="hs-tag dec">قرارات</span><time>نوفمبر 2026م</time></div><h2>إيقاف موظفين احتياطياً عن العمل لدواعي ومقتضيات مصلحة التحقيق</h2><p>صدر القراران رقم (979) و(987) لسنة 2026م إعمالاً لأحكام المادة (32) من القانون رقم (20) لسنة 2013م.</p><a class="hs-read" href="#/news" draggable="false">اقرأ الخبر <span><svg viewBox="0 0 12 12"><path d="M9 6H3M5.5 3.5L3 6l2.5 2.5"/></svg></span></a></div>
+        </article>
+      </div>
+      <div class="hs-top"><div class="hs-bars" id="hsBars"><button aria-label="الخبر 1"><i></i></button><button aria-label="الخبر 2"><i></i></button><button aria-label="الخبر 3"><i></i></button></div><div class="hs-count"><b id="hsCur">01</b> / 03</div></div>
+      <div class="hs-nav"><button id="hsPrev" aria-label="الخبر السابق"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button><button id="hsNext" aria-label="الخبر التالي"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button></div>
+      <div class="hs-hint" id="hsHint"><svg viewBox="0 0 24 24"><path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V12m0-1.5a1.5 1.5 0 0 1 3 0V12m0-.5a1.5 1.5 0 0 1 3 0V14a6 6 0 0 1-6 6h-1a6 6 0 0 1-5-2.7L3.5 14a1.5 1.5 0 0 1 2.5-1.6L8 15"/></svg>اسحب لتصفح الأخبار</div>
+    </div>
+    </div>
+</div></section>
 <section class="sec" id="news">
   <div class="wrap">
     <div class="sh rv"><span class="sh-tag">المركز الإعلامي</span><h2>الأخبار</h2><i class="sh-line"></i></div>
@@ -1253,6 +1299,13 @@ body.bot-open .bot{opacity:1;pointer-events:auto;transform:none}
       </div>
     </div>
   </div>
+</section>
+<section class="sec" id="home-ads">
+  <div class="wrap">
+    <div class="sh rv"><span class="sh-tag">إعلانات</span><h2>توعية وأخبار التقنية</h2><i class="sh-line"></i></div>
+
+  </div>
+  <div class="ads rv"><div class="ads-track" id="adsTrack"><div class="ad tech"><span class="ad-ic"><svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><div><span class="ad-tag">تقنية</span><b>احمِ حساباتك الرقمية</b><p>فعّل التحقق بخطوتين، ولا تشارك رمز التحقق مع أي جهة.</p></div></div><div class="ad warn"><span class="ad-ic"><svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17v.5"/></svg></span><div><span class="ad-tag">توعية</span><b>احذر رسائل التصيّد</b><p>لا تفتح الروابط المجهولة، وتأكد من عنوان الموقع قبل إدخال بياناتك.</p></div></div><div class="ad tech"><span class="ad-ic"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.3-5.7M4 4v4h4"/></svg></span><div><span class="ad-tag">تقنية</span><b>حدّث أجهزتك باستمرار</b><p>التحديثات تسد الثغرات الأمنية في الأنظمة والتطبيقات.</p></div></div><div class="ad gold"><span class="ad-ic"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H8l-4 4z"/></svg></span><div><span class="ad-tag">خدمة</span><b>بلّغ عبر منظومة رقيب</b><p>شاهدت مخالفة إدارية أو مالية؟ قدّم بلاغك إلكترونياً.</p></div></div><div class="ad dark"><span class="ad-ic"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 7h14M7 7l-3 7h6zM17 7l-3 7h6z"/></svg></span><div><span class="ad-tag">جديد</span><b>المساعد القانوني</b><p>اسأل عن القوانين واللوائح المنظمة لعمل الهيئة.</p></div></div><div class="ad warn"><span class="ad-ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/></svg></span><div><span class="ad-tag">توعية</span><b>النزاهة مسؤولية الجميع</b><p>الحفاظ على المال العام واجب على كل موظف ومواطن.</p></div></div></div></div>
 </section>
 
 </div>
@@ -1891,6 +1944,47 @@ document.documentElement.classList.add('js');
   if (rg) rg.innerHTML = REPORTS.length
     ? REPORTS.map(r => `<a class="rp" href="${r.u}" target="_blank" rel="noopener"><span class="yr">${r.y}</span><b>${r.t}</b><span class="sh-more" style="align-self:flex-start;margin-top:8px">تحميل التقرير</span></a>`).join('')
     : `<div class="empty"><span class="ic">${DOC}</span>سيتم نشر التقارير السنوية لأعمال الهيئة في هذه الصفحة.</div>`;
+
+
+  // ===== البحث في الموقع =====
+  const IDX = [
+    ['عن الهيئة','#/about','تعريف اختصاصات قانون 20 2013 نشأة'],
+    ['الهيكل التنظيمي','#/structure','مكاتب ادارات فروع وحدات تنظيم تقسيمات وكيل مستشار تحقيق رقابة'],
+    ['فروع الهيئة','#/structure','فرع مكتب وحدة منفذ طرابلس مصراتة سبها الزاوية سرت'],
+    ['رؤساء الهيئة','#/chairmen','رئيس قادربوه رؤساء سابقون تأسيس'],
+    ['الأخبار','#/news','خبر اخبار نشاط لقاء'],
+    ['الصور والفيديو','#/media','صور فيديو معرض وسائط'],
+    ['القرارات والتشريعات','#/decisions','قرار قرارات ايقاف تشريع قانون لائحة 979 987'],
+    ['التقارير السنوية','#/reports','تقرير تقارير سنوي'],
+    ['الخدمات الإلكترونية','#/services','خدمات الكترونية رقيب مساعد قانوني بلاغ شكوى'],
+    ['منظومة رقيب','https://raqeb.aca.gov.ly','بلاغ شكوى ابلاغ مخالفة فساد رقيب'],
+    ['المساعد القانوني','#/services','سؤال استفسار قانون لائحة مساعد ذكي'],
+    ['مواقع مهمة','#/links','روابط مواقع وزارات جهات حكومية'],
+    ['تواصل معنا','#/contact','اتصال هاتف بريد عنوان ايميل'],
+  ].concat(LINKS.map(l => [l.t, l.u, 'موقع رابط']));
+  const nz = t => t.replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').toLowerCase();
+  const sIn = document.getElementById('siteSearch'), sRes = document.getElementById('siteRes');
+  if (sIn) {
+    let hl = 0, hits = [];
+    const draw = () => {
+      const q = nz(sIn.value.trim());
+      if (!q) { sRes.classList.remove('open'); return; }
+      hits = IDX.filter(([t,,k]) => nz(t + ' ' + k).includes(q)).slice(0, 7); hl = 0;
+      sRes.innerHTML = hits.length ? hits.map(([t,u],i) => `<a href="${u}"${u.startsWith('http')?' target="_blank" rel="noopener"':''} class="${i===0?'hl':''}"><span>${t}</span><small>${u.startsWith('http')?'موقع خارجي':'صفحة'}</small></a>`).join('') : '<div class="none">لا توجد نتائج مطابقة.</div>';
+      sRes.classList.add('open');
+    };
+    sIn.addEventListener('input', draw);
+    sIn.addEventListener('keydown', e => {
+      const as = [...sRes.querySelectorAll('a')];
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); if (!as.length) return; hl = (hl + (e.key === 'ArrowDown' ? 1 : -1) + as.length) % as.length; as.forEach((a,i) => a.classList.toggle('hl', i === hl)); }
+      if (e.key === 'Enter' && as[hl]) { e.preventDefault(); as[hl].click(); sIn.value = ''; sRes.classList.remove('open'); }
+      if (e.key === 'Escape') sRes.classList.remove('open');
+    });
+    sRes.addEventListener('click', () => { sIn.value = ''; sRes.classList.remove('open'); });
+    addEventListener('click', e => { if (!e.target.closest('.cv-search')) sRes.classList.remove('open'); });
+  }
+  const cvd = document.getElementById('cvDown');
+  if (cvd) cvd.onclick = () => { const t = document.getElementById('home-news'); if (lenis) lenis.scrollTo(t, {offset:-130}); else t.scrollIntoView({behavior:'smooth'}); };
 
   // ===== التنقل بين الصفحات =====
   const views = [...document.querySelectorAll('.page')], mis = [...document.querySelectorAll('.menu .mi')];
