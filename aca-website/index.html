@@ -85,14 +85,6 @@ html.lenis,html.lenis body{height:auto}
 .burger i:first-child{transform:translateY(-3px)}.burger i:last-child{transform:translateY(3px)}
 body.menu-open .burger i:first-child{transform:rotate(45deg)}
 body.menu-open .burger i:last-child{transform:rotate(-45deg)}
-.mmenu{position:fixed;inset:0;z-index:40;background:color-mix(in srgb,var(--bg) 95%,transparent);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;opacity:0;pointer-events:none;transition:opacity .5s var(--ease)}
-.mmenu a{font-size:30px;opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
-body.menu-open .mmenu{opacity:1;pointer-events:auto}
-body.menu-open .mmenu a{opacity:1;transform:none}
-body.menu-open .mmenu a:nth-child(2){transition-delay:.06s}
-body.menu-open .mmenu a:nth-child(3){transition-delay:.12s}
-body.menu-open .mmenu a:nth-child(4){transition-delay:.18s}
-body.menu-open .mmenu a:nth-child(5){transition-delay:.24s}
 
 /* ===== الواجهة ===== */
 .hero{padding-top:122px}
@@ -725,19 +717,12 @@ body.bot-open .bot{opacity:1;pointer-events:auto;transform:none}
 .nav-r{margin-inline-start:auto}
 @media (max-width:1240px){.logo-t{display:none}.mi{padding:8px 10px;font-size:13.5px}}
 @media (max-width:1100px){.menu{display:none}.burger{display:grid!important}}
-.mmenu{justify-content:flex-start!important;align-items:stretch!important;padding:150px 28px 40px;overflow:auto}
-.mm-in{max-width:520px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:6px}
-.mmenu a{font-size:18px!important;padding:10px 4px;border-bottom:1px solid var(--line)}
-.mm-g{display:flex;flex-direction:column;padding:8px 0}
-.mm-g b{font-size:13px;color:var(--gold);font-weight:600;padding:6px 4px}
-.mm-g a{font-size:16px!important;padding:8px 14px}
 .hero{padding-top:172px!important}
 .page:not(.home){padding-top:190px!important}
 @media (max-width:640px){
   .infobar{top:38px;height:32px;font-size:11.5px}.infobar .wrap{padding:0 12px;overflow-x:auto;scrollbar-width:none}
   .ib-item.hijri,.ib-g:first-child .ib-sep{display:none}.ib-item b{font-size:12px}.ib-g{gap:9px}
   .nav{top:70px!important}.hero{padding-top:150px!important}.page:not(.home){padding-top:160px!important}
-  .mmenu{padding-top:130px}
 }
 
 /* ================= v7: عناوين الأقسام والفواصل ================= */
@@ -946,6 +931,96 @@ body.bot-open .bot{opacity:1;pointer-events:auto;transform:none}
 @media (max-width:640px){.cover{padding:140px 0 80px;min-height:100svh}.qa-row{gap:10px;margin-top:28px}.qa{flex-direction:column;align-items:flex-start;gap:8px;padding:14px}.qa-go{display:none}.qa small{display:none}.qa b{font-size:14px}.cv-search input{font-size:14px}}
 @media (prefers-reduced-motion:reduce){.cv-a,.qa,.cv-img{animation:none;opacity:1;transform:none}}
 
+
+/* ===== شاشة الافتتاح ===== */
+.splash{position:fixed;inset:0;z-index:300;background:radial-gradient(70% 60% at 50% 45%,#23252B,#121317);display:grid;place-items:center;transition:clip-path 1.1s cubic-bezier(.76,0,.24,1);clip-path:inset(0 0 0 0)}
+.splash.out{clip-path:inset(0 0 100% 0)}
+.sp-in{display:flex;flex-direction:column;align-items:center;gap:22px;transition:opacity .5s,transform .8s var(--ease)}
+.splash.out .sp-in{opacity:0;transform:translateY(-40px)}
+.sp-logo{position:relative;width:min(300px,62vw);padding:22px 26px;border-radius:28px;background:#fff;box-shadow:0 0 0 1px rgba(255,255,255,.1),0 40px 80px -30px rgba(0,0,0,.8),0 0 90px -20px rgba(201,162,39,.45);opacity:0;transform:scale(.86);animation:spIn 1s var(--ease) .15s forwards}
+.sp-logo img{width:100%;height:auto;display:block}
+.sp-logo::after{content:"";position:absolute;inset:22px 26px;background:linear-gradient(105deg,transparent 30%,rgba(255,236,170,.95) 46%,#fff 50%,rgba(255,236,170,.95) 54%,transparent 70%);background-size:250% 100%;background-position:150% 0;-webkit-mask:var(--lg) center/contain no-repeat;mask:var(--lg) center/contain no-repeat;mix-blend-mode:screen;animation:spShine 1.5s ease-in-out .9s forwards}
+@keyframes spIn{to{opacity:1;transform:none}}
+@keyframes spShine{to{background-position:-50% 0}}
+.sp-name{color:#E9D9A8;font-size:clamp(20px,3vw,28px);font-weight:500;opacity:0;animation:spIn .9s var(--ease) .6s forwards;transform:translateY(10px)}
+.sp-bar{width:120px;height:2px;border-radius:2px;background:rgba(255,255,255,.12);overflow:hidden;opacity:0;animation:spIn .6s .8s forwards}
+.sp-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#B98F1F,#F1D98C);animation:spLoad 1.5s var(--ease) .9s forwards}
+@keyframes spLoad{to{width:100%}}
+body.splashing{overflow:hidden}
+body.splashing .cv-a,body.splashing .qa,body.splashing .cv-img{animation-play-state:paused}
+
+/* ===== سلايدر الأخبار في الرئيسية ===== */
+.ncar{margin-top:30px;position:relative}
+.nc-track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 40px)/3);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:6px 2px 18px;scroll-behavior:smooth;overscroll-behavior-x:contain}
+.nc-track::-webkit-scrollbar{display:none}
+.nc{scroll-snap-align:start;display:flex;flex-direction:column;border-radius:24px;overflow:hidden;background:var(--bg);border:1px solid var(--line);transition:transform .6s var(--ease),box-shadow .6s var(--ease),opacity .7s var(--ease),scale .7s var(--ease)}
+.nc:hover{transform:translateY(-6px);box-shadow:var(--shadow-h)}
+.nc-img{position:relative;aspect-ratio:16/10;overflow:hidden}
+.nc-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.nc:hover .nc-img img{transform:scale(1.06)}
+.nc-img img[data-img="dec"]{object-position:62% 50%}
+.nc-tag{position:absolute;top:14px;right:14px;font-size:12px;font-weight:600;padding:4px 11px;border-radius:8px;background:rgba(255,255,255,.92);color:#16171A}
+.nc-tag.dec{background:#C8102E;color:#fff}
+.nc-b{padding:18px 20px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+.nc-b time{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--mute)}
+.nc-b time svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.7}
+.nc-b h3{font-size:18px;font-weight:600;line-height:1.55}
+.nc-b p{font-size:14px;color:var(--ink-2);line-height:1.8}
+.nc-go{margin-top:auto;padding-top:10px;display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600}
+.nc-go svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;transition:transform .4s var(--ease)}
+.nc:hover .nc-go svg{transform:translateX(-4px)}
+.nc-ctrl{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:8px}
+.nc-ctrl button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--bg);cursor:pointer;display:grid;place-items:center;transition:background .3s,transform .4s var(--ease)}
+.nc-ctrl button:hover{background:var(--btn);transform:scale(1.06)}
+.nc-ctrl button svg{width:18px;height:18px;fill:none;stroke:var(--ink);stroke-width:2}
+.nc-ctrl button:hover svg{stroke:var(--btn-ink)}
+.nc-dots{display:flex;gap:6px}
+.nc-dots i{width:8px;height:8px;border-radius:9px;background:var(--line);transition:width .5s var(--ease),background .4s;cursor:pointer}
+.nc-dots i.on{width:28px;background:var(--gold)}
+@media (max-width:900px){.nc-track{grid-auto-columns:78%;gap:14px}}
+@media (max-width:640px){.nc-track{grid-auto-columns:86%}.nc:not(.cur){opacity:.55;scale:.95}}
+
+/* ===== القائمة الكاملة ===== */
+.burger{display:grid!important;position:relative;z-index:61}
+.mmenu{position:fixed;inset:0;z-index:58;display:flex;flex-direction:column;padding:150px max(28px,6vw) 28px;color:#EFE6CF;background:radial-gradient(80% 70% at 85% 10%,#2B2D35,#14151A 70%);clip-path:circle(0 at var(--mx,6%) var(--my,110px));transition:clip-path .9s cubic-bezier(.76,0,.24,1);overflow:auto;visibility:hidden}
+body.menu-open .mmenu{clip-path:circle(150% at var(--mx,6%) var(--my,110px));visibility:visible}
+body.menu-open{overflow:hidden}
+body.menu-open .bot-fab{opacity:0;pointer-events:none}
+.nc-ctrl.hide{display:none}
+body.menu-open .nav{z-index:62;background:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+body.menu-open .nav .logo,body.menu-open .nav .menu,body.menu-open .nav .lang,body.menu-open .nav .theme{opacity:0;pointer-events:none}
+body.menu-open .burger{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2)}
+body.menu-open .burger i{background:#fff}
+.mm-wm{position:absolute;left:-8vw;bottom:-6vw;width:min(620px,70vw);opacity:0;filter:grayscale(1) brightness(2.2);transform:rotate(-12deg) scale(.9);transition:opacity 1.2s var(--ease) .3s,transform 1.6s var(--ease) .3s;pointer-events:none;mix-blend-mode:soft-light}
+body.menu-open .mm-wm{opacity:.18;transform:rotate(0) scale(1)}
+.mm-top{position:absolute;top:96px;inset-inline:max(28px,6vw);display:flex;justify-content:flex-start}
+.mm-tools{display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);opacity:0;transform:translateY(-10px);transition:opacity .6s .45s,transform .6s var(--ease) .45s}
+body.menu-open .mm-tools{opacity:1;transform:none}
+.mm-tools i{width:1px;height:20px;background:rgba(255,255,255,.2);margin:0 4px}
+.mm-t{all:unset;cursor:pointer;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:14px;color:#EFE6CF;transition:background .3s}
+.mm-t:hover{background:rgba(255,255,255,.1)}
+.mm-t svg{width:19px;height:19px;fill:none;stroke:#EFE6CF;stroke-width:1.6}
+.mm-body{position:relative;flex:1;display:flex;justify-content:space-between;align-items:flex-start;gap:40px;margin-top:30px}
+.mm-main{list-style:none;display:flex;flex-direction:column;gap:2px}
+.mm-main li{overflow:hidden}
+.mm-main a{display:inline-flex;align-items:baseline;gap:16px;font-size:clamp(30px,4.6vw,58px);font-weight:300;line-height:1.35;color:#EFE6CF;transform:translateY(110%);transition:transform .9s var(--ease),color .3s;transition-delay:calc(.25s + var(--i)*.06s)}
+body.menu-open .mm-main a{transform:none}
+.mm-main a:hover{color:#E2C15A}
+.mm-n{font-family:"Inter Tight";font-size:13px;color:#C9A227;opacity:.8;letter-spacing:.05em}
+.mm-main a:hover .mm-n{opacity:1}
+.mm-main a::after{content:"";height:1px;width:0;background:#E2C15A;align-self:center;transition:width .5s var(--ease)}
+.mm-main a:hover::after{width:40px}
+.mm-sub{list-style:none;display:flex;flex-direction:column;gap:10px;padding-top:18px;min-width:200px}
+.mm-sub li{opacity:0;transform:translateX(-20px);transition:opacity .6s,transform .7s var(--ease);transition-delay:calc(.55s + var(--i)*.06s)}
+body.menu-open .mm-sub li{opacity:1;transform:none}
+.mm-sub a{font-size:17px;color:rgba(239,230,207,.7);transition:color .3s}
+.mm-sub a:hover{color:#fff}
+.mm-foot{position:relative;display:flex;gap:26px;justify-content:flex-start;font-size:13.5px;color:rgba(239,230,207,.55);padding-top:24px;border-top:1px solid rgba(255,255,255,.1);opacity:0;transition:opacity .6s .9s}
+body.menu-open .mm-foot{opacity:1}
+body:not(.menu-open) .mm-main a,body:not(.menu-open) .mm-sub li{transition-delay:0s;transition-duration:.3s}
+@media (max-width:760px){.mmenu{padding:140px 26px 24px}.mm-top{top:84px}.mm-body{flex-direction:column;gap:22px;margin-top:20px}.mm-main a{font-size:30px}.mm-sub{flex-direction:row;flex-wrap:wrap;gap:8px 18px;padding-top:6px}.mm-sub a{font-size:15px}.mm-foot{flex-direction:column;gap:4px}}
+@media (prefers-reduced-motion:reduce){.splash{display:none}.mmenu{transition:none}}
+
 /* ===== شريط الأخبار ===== */
 .ticker{position:fixed;top:0;inset-inline:0;z-index:55;height:40px;display:flex;align-items:stretch;background:#16171A;color:#EDEDF0;font-size:14px;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.06)}
 [data-theme="dark"] .ticker{background:#202125}
@@ -984,6 +1059,9 @@ body.bot-open .bot{opacity:1;pointer-events:auto;transform:none}
 </head>
 <body>
 
+<div class="splash" id="splash" aria-hidden="true">
+  <div class="sp-in"><div class="sp-logo" id="spLogo"><img data-img="logo" alt=""></div><div class="sp-name">هيئة الرقابة الإدارية</div><div class="sp-bar"><i></i></div></div>
+</div>
 <div class="ticker" id="ticker" role="region" aria-label="شريط الأخبار">
   <div class="tk-label"><svg class="tk-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2.2"/><path class="w1" d="M8.5 8.5a5 5 0 0 0 0 7M15.5 8.5a5 5 0 0 1 0 7"/><path class="w2" d="M5.6 5.6a9 9 0 0 0 0 12.8M18.4 5.6a9 9 0 0 1 0 12.8"/></svg><span>الأخبار</span></div>
   <div class="tk-view"><div class="tk-track" id="tkTrack">
@@ -1022,15 +1100,14 @@ body.bot-open .bot{opacity:1;pointer-events:auto;transform:none}
     </div>
   </div>
 </header>
-<nav class="mmenu" aria-label="قائمة الجوال">
-  <div class="mm-in">
-  <a href="#/">الرئيسية</a>
-  <div class="mm-g"><b>الهيئة</b><a href="#/about">عن الهيئة</a><a href="#/structure">الهيكل التنظيمي</a><a href="#/chairmen">رؤساء الهيئة</a></div>
-  <div class="mm-g"><b>المركز الإعلامي</b><a href="#/news">الأخبار</a><a href="#/media">الصور والفيديو</a></div>
-  <div class="mm-g"><b>القرارات والتقارير</b><a href="#/decisions">القرارات والتشريعات</a><a href="#/reports">التقارير السنوية</a></div>
-  <div class="mm-g"><b>الخدمات الإلكترونية</b><a href="https://raqeb.aca.gov.ly" target="_blank" rel="noopener">منظومة رقيب</a><a href="#/services">المساعد القانوني</a></div>
-  <a href="#/links">مواقع مهمة</a><a href="#/contact">تواصل معنا</a>
+<nav class="mmenu" id="mmenu" aria-label="القائمة" aria-hidden="true">
+  <img class="mm-wm" data-img="logo" alt="">
+  <div class="mm-top"><div class="mm-tools"><button class="mm-t" data-mm="search" aria-label="بحث"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button><a class="mm-t" href="#/contact" aria-label="اتصل بنا"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a><i></i><a class="mm-t" href="#" lang="en">EN</a></div></div>
+  <div class="mm-body">
+    <ol class="mm-main"><li style="--i:0"><a href="#/"><span class="mm-n">01</span>الرئيسية</a></li><li style="--i:1"><a href="#/about"><span class="mm-n">02</span>عن الهيئة</a></li><li style="--i:2"><a href="#/structure"><span class="mm-n">03</span>الهيكل التنظيمي</a></li><li style="--i:3"><a href="#/news"><span class="mm-n">04</span>المركز الإعلامي</a></li><li style="--i:4"><a href="#/decisions"><span class="mm-n">05</span>القرارات والتقارير</a></li><li style="--i:5"><a href="#/services"><span class="mm-n">06</span>الخدمات الإلكترونية</a></li><li style="--i:6"><a href="#/contact"><span class="mm-n">07</span>تواصل معنا</a></li></ol>
+    <ul class="mm-sub"><li style="--i:0"><a href="#/chairmen">رؤساء الهيئة</a></li><li style="--i:1"><a href="#/media">الصور والفيديو</a></li><li style="--i:2"><a href="#/reports">التقارير السنوية</a></li><li style="--i:3"><a href="#/links">مواقع مهمة</a></li><li style="--i:4"><a href="https://raqeb.aca.gov.ly" target="_blank" rel="noopener">منظومة رقيب</a></li></ul>
   </div>
+  <div class="mm-foot"><span>info@aca.gov.ly</span><span dir="ltr">+218 21 360 7151</span></div>
 </nav>
 
 <main id="top">
@@ -1060,34 +1137,9 @@ body.bot-open .bot{opacity:1;pointer-events:auto;transform:none}
   <div class="wrap">
     <div class="sh rv"><span class="sh-tag">المركز الإعلامي</span><h2>أحدث الأخبار</h2><i class="sh-line"></i><a class="sh-more" href="#/news">كل الأخبار <svg viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></a></div>
 
-    <div class="news-grid">
-      <a href="#" class="ncard feat rv" style="--d:1">
-        <div class="ph"><span class="tag">أخبار</span><img data-img="m1" alt="رئيس الهيئة في لقاء بمقر المجلس الأعلى للدولة"></div>
-        <div class="body">
-          <time><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>طرابلس | الأحد 22 نوفمبر 2026م</time>
-          <h3>رئيس الهيئة يلتقي رئيس المجلس الأعلى للدولة ومحافظ مصرف ليبيا المركزي</h3>
-          <p>لقاء بمقر ديوان المجلس الأعلى للدولة، تناول الملفات المتعلقة بالأوضاع الاقتصادية والمالية، والتحديات المرتبطة بإدارة المال العام، وأهمية التنسيق بين المؤسسات التشريعية والرقابية والمالية.</p>
-          <span class="read"><span class="ar"><svg viewBox="0 0 12 12"><path d="M9 6H3M5.5 3.5L3 6l2.5 2.5"/></svg></span>اقرأ الخبر</span>
-        </div>
-      </a>
-      <div class="side-news">
-        <a href="#" class="ncard mini rv" style="--d:2">
-          <div class="ph"><span class="tag">أخبار</span><img data-img="m2" alt=""></div>
-          <div class="body">
-            <time><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>22 نوفمبر 2026م</time>
-            <h3>رئيس الهيئة يلتقي مجلس قبائل المشاشية في إطار التواصل مع المكونات الاجتماعية</h3>
-            <span class="read"><span class="ar"><svg viewBox="0 0 12 12"><path d="M9 6H3M5.5 3.5L3 6l2.5 2.5"/></svg></span>اقرأ الخبر</span>
-          </div>
-        </a>
-        <a href="#" class="ncard mini rv" style="--d:3">
-          <div class="ph"><span class="tag dec">قرارات</span><img data-img="dec" alt=""></div>
-          <div class="body">
-            <time><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>نوفمبر 2026م</time>
-            <h3>إيقاف موظفين احتياطياً عن العمل لدواعي ومقتضيات مصلحة التحقيق</h3>
-            <span class="read"><span class="ar"><svg viewBox="0 0 12 12"><path d="M9 6H3M5.5 3.5L3 6l2.5 2.5"/></svg></span>اقرأ الخبر</span>
-          </div>
-        </a>
-      </div>
+    <div class="ncar">
+      <div class="nc-track" id="ncTrack"><a class="nc" href="#/news"><div class="nc-img"><img data-img="m1" alt=""><span class="nc-tag">أخبار</span></div><div class="nc-b"><time><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>الأحد 22 نوفمبر 2026م</time><h3>رئيس الهيئة يلتقي رئيس المجلس الأعلى للدولة ومحافظ مصرف ليبيا المركزي</h3><p>لقاء بمقر ديوان المجلس الأعلى للدولة لمتابعة الملفات الاقتصادية والمالية وإدارة المال العام.</p><span class="nc-go">اقرأ الخبر <svg viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></span></div></a><a class="nc" href="#/news"><div class="nc-img"><img data-img="m2" alt=""><span class="nc-tag">أخبار</span></div><div class="nc-b"><time><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>الأحد 22 نوفمبر 2026م</time><h3>رئيس الهيئة يلتقي مجلس قبائل المشاشية</h3><p>في إطار التواصل مع المكونات الاجتماعية وترسيخ مبادئ النزاهة والشفافية.</p><span class="nc-go">اقرأ الخبر <svg viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></span></div></a><a class="nc" href="#/news"><div class="nc-img"><img data-img="dec" alt=""><span class="nc-tag dec">قرارات</span></div><div class="nc-b"><time><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>نوفمبر 2026م</time><h3>إيقاف موظفين احتياطياً عن العمل لدواعي مصلحة التحقيق</h3><p>القراران رقم (979) و(987) لسنة 2026م إعمالاً لأحكام المادة (32) من القانون رقم (20) لسنة 2013م.</p><span class="nc-go">اقرأ الخبر <svg viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></span></div></a></div>
+      <div class="nc-ctrl"><button id="ncPrev" aria-label="السابق"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button><div class="nc-dots" id="ncDots"></div><button id="ncNext" aria-label="التالي"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button></div>
     </div>
   </div>
 </section>
@@ -1986,6 +2038,37 @@ document.documentElement.classList.add('js');
   const cvd = document.getElementById('cvDown');
   if (cvd) cvd.onclick = () => { const t = document.getElementById('home-news'); if (lenis) lenis.scrollTo(t, {offset:-130}); else t.scrollIntoView({behavior:'smooth'}); };
 
+
+  // ===== شاشة الافتتاح =====
+  const sp = document.getElementById('splash');
+  if (sp) {
+    document.getElementById('spLogo').style.setProperty('--lg', `url(${IMGS.logo})`);
+    let seen = false; try { seen = sessionStorage.getItem('aca-splash'); } catch (e) {}
+    if (reduce || seen || location.hash.length > 2) sp.remove();
+    else {
+      document.body.classList.add('splashing');
+      setTimeout(() => { sp.classList.add('out'); document.body.classList.remove('splashing'); try { sessionStorage.setItem('aca-splash', 1); } catch (e) {} }, 2700);
+      setTimeout(() => sp.remove(), 3900);
+    }
+  }
+
+  // ===== سلايدر الأخبار في الرئيسية =====
+  const nct = document.getElementById('ncTrack');
+  if (nct) {
+    const cs = [...nct.children], dots = document.getElementById('ncDots');
+    dots.innerHTML = cs.map(() => '<i></i>').join('');
+    const ds = [...dots.children];
+    const cur = () => { const r = nct.getBoundingClientRect(); let best = 0, bd = 1e9; cs.forEach((c,i) => { const d = Math.abs(c.getBoundingClientRect().right - r.right); if (d < bd) { bd = d; best = i; } }); return best; };
+    const upd = () => { const k = cur(); ds.forEach((d,i) => d.classList.toggle('on', i === k)); cs.forEach((c,i) => c.classList.toggle('cur', i === k)); };
+    const go = k => { k = Math.max(0, Math.min(cs.length - 1, k)); nct.scrollTo({left: cs[k].offsetLeft - nct.offsetWidth + cs[k].offsetWidth, behavior:'smooth'}); };
+    nct.addEventListener('scroll', () => requestAnimationFrame(upd), {passive:true});
+    document.getElementById('ncNext').onclick = () => go(cur() + 1);
+    document.getElementById('ncPrev').onclick = () => go(cur() - 1);
+    ds.forEach((d,i) => d.onclick = () => go(i));
+    const fit = () => document.querySelector('.nc-ctrl').classList.toggle('hide', nct.scrollWidth <= nct.clientWidth + 4);
+    upd(); fit(); addEventListener('resize', () => { upd(); fit(); });
+  }
+
   // ===== التنقل بين الصفحات =====
   const views = [...document.querySelectorAll('.page')], mis = [...document.querySelectorAll('.menu .mi')];
   const route = () => {
@@ -2004,7 +2087,17 @@ document.documentElement.classList.add('js');
   addEventListener('hashchange', route);
   route();
   document.querySelectorAll('a[href^="#/"]').forEach(a => a.addEventListener('click', () => document.body.classList.remove('menu-open')));
-  document.getElementById('burger').addEventListener('click', () => document.body.classList.toggle('menu-open'));
+  const burger = document.getElementById('burger'), mm = document.getElementById('mmenu');
+  const setMenu = o => {
+    const r = burger.getBoundingClientRect();
+    mm.style.setProperty('--mx', (r.left + r.width/2) + 'px'); mm.style.setProperty('--my', (r.top + r.height/2) + 'px');
+    document.body.classList.toggle('menu-open', o); mm.setAttribute('aria-hidden', !o); burger.setAttribute('aria-expanded', o);
+    if (lenis) o ? lenis.stop() : lenis.start();
+  };
+  burger.addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')));
+  mm.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  mm.querySelector('[data-mm="search"]').addEventListener('click', () => { setMenu(false); location.hash = '#/'; setTimeout(() => document.getElementById('siteSearch').focus(), 500); });
+  addEventListener('keydown', e => { if (e.key === 'Escape' && document.body.classList.contains('menu-open')) setMenu(false); });
 })();
 </script>
 </body>
