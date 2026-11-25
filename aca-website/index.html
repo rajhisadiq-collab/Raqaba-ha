@@ -825,6 +825,12 @@ body.bot-open .bot{opacity:1;pointer-events:auto;transform:none}
 .lk .ic svg{width:20px;height:20px;fill:none;stroke:var(--ink);stroke-width:1.6}
 .lk b{display:block;font-size:14.5px;font-weight:600}
 .lk small{font-size:12px;color:var(--mute);direction:ltr;display:block;text-align:right}
+.links-grid.grouped{display:block}
+.lk-g{margin-bottom:28px}
+.lk-g h3{font-size:16px;font-weight:600;color:var(--gold);margin-bottom:12px}
+.lk-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media (max-width:1100px){.lk-row{grid-template-columns:1fr 1fr}}@media (max-width:640px){.lk-row{grid-template-columns:1fr}}
+.lk b{line-height:1.5}
 .empty{grid-column:1/-1;display:flex;align-items:center;gap:16px;padding:26px;border-radius:20px;border:1.5px dashed var(--line);color:var(--ink-2);font-size:15px}
 .empty .ic{width:52px;height:52px;border-radius:16px;background:var(--surface);display:grid;place-items:center;flex:none}
 .empty .ic svg{width:24px;height:24px;fill:none;stroke:var(--gold);stroke-width:1.6}
@@ -1778,13 +1784,36 @@ document.documentElement.classList.add('js');
   document.querySelectorAll('.m-item[data-img-src]').forEach(b => b.addEventListener('click', () => { lbx.querySelector('img').src = IMGS[b.dataset.imgSrc]; lbx.querySelector('figcaption').textContent = b.dataset.cap; lbx.classList.add('open'); }));
 
   // ===== المواقع المهمة والتقارير — أضف البيانات هنا =====
-  const LINKS = [ /* {t:'اسم الجهة', u:'https://...'} */ ];
+  const LINKS = [
+    {g:'رسمية', t:'رئاسة الوزراء - حكومة الوحدة الوطنية', u:'https://www.pm.gov.ly/'},
+    {g:'رسمية', t:'مجلس النواب', u:'https://parliament.ly/'},
+    {g:'رسمية', t:'المجلس الأعلى للدولة', u:'https://hcs.gov.ly/'},
+    {g:'رسمية', t:'وزارة الخارجية والتعاون الدولي', u:'https://foreign.gov.ly/MOFA/'},
+    {g:'رسمية', t:'وزارة المالية', u:'https://mof.gov.ly/'},
+    {g:'رسمية', t:'وزارة العدل', u:'https://aladel.gov.ly/home/'},
+    {g:'رسمية', t:'وزارة التخطيط', u:'https://www.planning.gov.ly/ar/'},
+    {g:'رسمية', t:'وزارة الحكم المحلي', u:'https://www.lgm.gov.ly/'},
+    {g:'رسمية', t:'وزارة الصحة', u:'https://www.health.gov.ly/'},
+    {g:'رسمية', t:'وزارة التربية والتعليم', u:'https://moe.gov.ly/'},
+    {g:'رسمية', t:'الهيئة العامة للمعلومات', u:'https://www.gia.gov.ly/'},
+    {g:'رسمية', t:'المفوضية الوطنية العليا للانتخابات', u:'https://hnec.ly/'},
+    {g:'خدمات', t:'مشروع الرقم الوطني', u:'https://www.nid.gov.ly/NID.html'},
+    {g:'قانونية', t:'إدارة القضايا الليبية', u:'https://sld.gov.ly/'},
+    {g:'قانونية', t:'المجلس الوطني للحريات العامة وحقوق الإنسان', u:'https://ncplhr.ly/'},
+    {g:'قانونية', t:'المركز العربي للبحوث القانونية والقضائية', u:'https://www.carjj.org/'},
+    {g:'إعلام وثقافة', t:'وكالة الأنباء الليبية', u:'https://lana.gov.ly/'},
+    {g:'إعلام وثقافة', t:'دليل الكتب الليبية الإلكتروني', u:'https://dolb.dolj.ly/'}
+  ];
   const REPORTS = [ /* {y:'2025', t:'التقرير السنوي لأعمال الهيئة', u:'reports/2025.pdf'} */ ];
   const GL = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg>';
   const DOC = '<svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h7M9 16h5"/></svg>';
-  document.querySelectorAll('[data-links]').forEach(g => g.innerHTML = LINKS.length
-    ? LINKS.map(l => `<a class="lk" href="${l.u}" target="_blank" rel="noopener"><span class="ic">${GL}</span><span><b>${l.t}</b><small>${l.u.replace(/^https?:\/\//,'').replace(/\/$/,'')}</small></span></a>`).join('')
-    : `<div class="empty"><span class="ic">${GL}</span>سيتم إضافة روابط المواقع الرسمية المهمة هنا.</div>`);
+  const lk = l => `<a class="lk" href="${l.u}" target="_blank" rel="noopener"><span class="ic">${GL}</span><span><b>${l.t}</b><small>${l.u.replace(/^https?:\/\/(www\.)?/,'').replace(/\/.*$/,'')}</small></span></a>`;
+  document.querySelectorAll('[data-links]').forEach(g => {
+    if (g.closest('.home')) { g.innerHTML = ['https://www.pm.gov.ly/','https://parliament.ly/','https://hcs.gov.ly/','https://mof.gov.ly/','https://aladel.gov.ly/home/','https://www.nid.gov.ly/NID.html','https://sld.gov.ly/','https://hnec.ly/'].map(u => lk(LINKS.find(l => l.u === u))).join(''); return; }
+    const groups = [...new Set(LINKS.map(l => l.g))];
+    g.classList.add('grouped');
+    g.innerHTML = groups.map(gr => `<div class="lk-g"><h3>${{'رسمية':'جهات رسمية','خدمات':'خدمات إلكترونية','قانونية':'جهات قانونية وحقوقية','إعلام وثقافة':'إعلام وثقافة'}[gr]}</h3><div class="lk-row">${LINKS.filter(l => l.g === gr).map(lk).join('')}</div></div>`).join('');
+  });
   const rg = document.getElementById('reportsGrid');
   if (rg) rg.innerHTML = REPORTS.length
     ? REPORTS.map(r => `<a class="rp" href="${r.u}" target="_blank" rel="noopener"><span class="yr">${r.y}</span><b>${r.t}</b><span class="sh-more" style="align-self:flex-start;margin-top:8px">تحميل التقرير</span></a>`).join('')
