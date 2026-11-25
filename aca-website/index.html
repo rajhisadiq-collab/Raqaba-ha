@@ -1275,6 +1275,54 @@ html:not([data-theme="dark"]) .mm-wm{filter:grayscale(1) contrast(1.1) brightnes
   .infobar .ib-item small{display:inline!important;font-size:10px}
   .infobar .rates{gap:8px}
 }
+
+/* v14: رؤساء الهيئة + التقارير */
+.chr-now{position:relative;overflow:hidden;display:flex;align-items:center;gap:20px;padding:26px 28px;border-radius:22px;background:var(--surface);border:1px solid var(--line);margin-top:8px}
+.chr-now::before{content:"";position:absolute;inset:0 0 0 auto;width:4px;background:var(--gold)}
+.chr-av{width:78px;height:78px;border-radius:50%;background:#fff;border:1px solid var(--line);display:grid;place-items:center;flex:none}
+.chr-av img{width:58px}
+.chr-now h3{font-size:clamp(20px,2vw,26px);font-weight:600;margin-top:6px}
+.chr-now p{font-size:14.5px;color:var(--ink-2)}
+.chr-big{position:absolute;left:24px;top:50%;transform:translateY(-50%);font-family:"Inter Tight";font-size:110px;font-weight:200;line-height:1;color:var(--gold);opacity:.18;pointer-events:none}
+.chr-h{font-size:18px;font-weight:600;margin:40px 0 16px;color:var(--ink)}
+.chr-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;counter-reset:none}
+.chr{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:14px;background:var(--surface);border:1px solid var(--line);transition:border-color .3s,transform .4s var(--ease)}
+.chr:hover{border-color:color-mix(in srgb,var(--gold) 55%,transparent);transform:translateY(-2px)}
+.chr-n{width:34px;height:34px;border-radius:50%;flex:none;display:grid;place-items:center;font-family:"Inter Tight";font-size:13px;font-weight:600;color:var(--ink);background:var(--gold-soft)}
+.chr b{font-size:15.5px;font-weight:500}
+.chr-found{display:flex;align-items:center;gap:14px;margin-top:28px;padding:16px 18px;border-radius:14px;border:1px dashed var(--line);color:var(--ink-2);font-size:14.5px}
+@media (max-width:640px){.chr-now{padding:20px}.chr-av{width:60px;height:60px}.chr-av img{width:44px}.chr-big{font-size:80px;left:14px}.chr-list{grid-template-columns:1fr}}
+.reports-grid{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))!important;gap:18px!important}
+.rp2{display:flex;flex-direction:column;border-radius:20px;overflow:hidden;background:var(--surface);border:1px solid var(--line);transition:transform .45s var(--ease),box-shadow .45s}
+.rp2:hover{transform:translateY(-4px);box-shadow:0 24px 50px -28px rgba(0,0,0,.35)}
+.rp2-cv{position:relative;aspect-ratio:4/3;display:grid;place-items:center;background:linear-gradient(150deg,#F3EEE4,#E4DACB);overflow:hidden}
+[data-theme="dark"] .rp2-cv{background:linear-gradient(150deg,#1D2E47,#16243A)}
+.rp2-cv img{width:42%;opacity:.95;filter:drop-shadow(0 8px 18px rgba(0,0,0,.12))}
+[data-theme="dark"] .rp2-cv img{background:#fff;border-radius:12px;padding:6px 8px}
+.rp2-cv span{position:absolute;bottom:10px;left:16px;font-family:"Inter Tight";font-size:48px;font-weight:200;color:color-mix(in srgb,var(--gold) 80%,#000);opacity:.55;line-height:1}
+.rp2-b{display:flex;flex-direction:column;gap:4px;padding:16px 18px 18px;flex:1}
+.rp2-b b{font-size:15.5px;font-weight:600;line-height:1.6}
+.rp2-b small{font-size:12.5px;color:var(--mute)}
+.rp2-a{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:14px}
+.rp2-v{all:unset;cursor:pointer;flex:1;text-align:center;padding:10px 14px;border-radius:999px;background:var(--btn,var(--ink));color:var(--btn-ink,#fff);font-size:13.5px;font-weight:500;transition:opacity .3s}
+.rp2-v:hover{opacity:.88}
+.rp2-d{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;flex:none;transition:border-color .3s}
+.rp2-d:hover{border-color:var(--gold)}
+.rp2-d svg{width:18px;height:18px;fill:none;stroke:var(--ink);stroke-width:1.8}
+.rp2-v:focus-visible,.rp2-d:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.repv{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:3vh 3vw;background:rgba(10,12,16,.55);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:opacity .35s,visibility 0s .35s}
+.repv.on{opacity:1;visibility:visible;transition:opacity .35s}
+.repv-box{width:min(1100px,100%);height:100%;display:flex;flex-direction:column;border-radius:18px;overflow:hidden;background:var(--surface);box-shadow:0 40px 80px -30px rgba(0,0,0,.5);transform:translateY(16px) scale(.985);transition:transform .45s var(--ease)}
+.repv.on .repv-box{transform:none}
+.repv-h{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px 12px 18px;border-bottom:1px solid var(--line)}
+.repv-h b{font-size:15px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.repv-act{display:flex;align-items:center;gap:8px;flex:none}
+.rv-open{font-size:13px;padding:8px 14px;border-radius:999px;border:1px solid var(--line);color:var(--ink)}
+.rv-open:hover{border-color:var(--gold)}
+.rv-x{all:unset;cursor:pointer;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--bg)}
+.rv-x svg{width:18px;height:18px;fill:none;stroke:var(--ink);stroke-width:2}
+.repv iframe{flex:1;width:100%;border:0;background:#525659}
+body.rv-open-b{overflow:hidden}
 </style>
 </head>
 <body>
@@ -1320,7 +1368,10 @@ html:not([data-theme="dark"]) .mm-wm{filter:grayscale(1) contrast(1.1) brightnes
     </div>
   </div>
 </header>
-<nav class="mmenu" id="mmenu" aria-label="القائمة" aria-hidden="true">
+<div class="repv" id="repViewer" role="dialog" aria-modal="true" aria-label="عارض التقارير" data-lenis-prevent>
+  <div class="repv-box"><div class="repv-h"><b class="rv-t"></b><div class="repv-act"><a class="rv-open" href="#" target="_blank" rel="noopener">فتح في نافذة جديدة</a><button class="rv-x" aria-label="إغلاق"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div></div>
+  <iframe title="التقرير السنوي" src="about:blank" loading="lazy"></iframe></div>
+</div><nav class="mmenu" id="mmenu" aria-label="القائمة" aria-hidden="true">
   <img class="mm-wm" data-img="logo" alt="">
   <div class="mm-top"><div class="mm-tools"><button class="mm-t" data-mm="search" aria-label="بحث"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button><a class="mm-t" href="#/contact" aria-label="اتصل بنا"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a><i></i><a class="mm-t" href="#" lang="en">EN</a></div></div>
     <div class="mm-sw"><div class="cv-search mm-search" role="search">
@@ -1483,12 +1534,11 @@ html:not([data-theme="dark"]) .mm-wm{filter:grayscale(1) contrast(1.1) brightnes
 <section class="sec" id="chairmen">
   <div class="wrap">
     <div class="sh rv"><span class="sh-tag">الهيئة</span><h2>رؤساء الهيئة</h2><i class="sh-line"></i></div>
-    <p class="sh-sub rv">رؤساء هيئة الرقابة الإدارية منذ تأسيسها بموجب القانون رقم (20) لسنة 2013م.</p>
-    <div class="timeline">
-      <div class="tl-item now rv"><span class="tl-dot"></span><div class="tl-card"><span class="tl-av"><img data-img="logo" alt=""></span><div><span class="tl-badge">الرئيس الحالي</span><h3>السيد عبدالله محمد قادربوه</h3><p>رئيس هيئة الرقابة الإدارية</p></div></div></div>
-      <div class="tl-item past rv" style="--d:1"><span class="tl-dot"></span><div class="tl-card"><span class="tl-av"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></span><div><h3>الرؤساء السابقون</h3><p>تُضاف أسماء الرؤساء السابقين وفترات تولّيهم بعد اعتماد البيانات.</p></div></div></div>
-      <div class="tl-item start rv" style="--d:2"><span class="tl-dot"></span><div class="tl-card"><span class="tl-av"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h7M9 16h5"/></svg></span><div><span class="tl-badge alt">2013م</span><h3>تأسيس الهيئة</h3><p>صدور القانون رقم (20) لسنة 2013م بإنشاء هيئة الرقابة الإدارية.</p></div></div></div>
-    </div>
+    <p class="sh-sub rv">رؤساء هيئة الرقابة الإدارية والأجهزة الرقابية التي سبقتها، بالترتيب كما وردت في السجل الرسمي للهيئة.</p>
+    <div class="chr-now rv"><span class="chr-av"><img data-img="logo" alt=""></span><div><span class="tl-badge">الرئيس الحالي</span><h3>السيد عبدالله محمد قادربوه</h3><p>رئيس هيئة الرقابة الإدارية</p></div><span class="chr-big" aria-hidden="true">17</span></div>
+    <h3 class="chr-h rv">الرؤساء السابقون</h3>
+    <ol class="chr-list"><li class="chr rv" style="--d:0"><span class="chr-n">1</span><b>عمار المبروك الطيف</b></li><li class="chr rv" style="--d:1"><span class="chr-n">2</span><b>محمد الزروق رجب</b></li><li class="chr rv" style="--d:2"><span class="chr-n">3</span><b>محمود محي الدين بادي</b></li><li class="chr rv" style="--d:3"><span class="chr-n">4</span><b>نوري سباق محمد</b></li><li class="chr rv" style="--d:4"><span class="chr-n">5</span><b>عبد الرحمن موسى العبار</b></li><li class="chr rv" style="--d:5"><span class="chr-n">6</span><b>محمد محمود حجازي</b></li><li class="chr rv" style="--d:0"><span class="chr-n">7</span><b>حسنى الصادق الوحيشى</b></li><li class="chr rv" style="--d:1"><span class="chr-n">8</span><b>عبد القادر محمد البغدادي</b></li><li class="chr rv" style="--d:2"><span class="chr-n">9</span><b>ابراهيم على إبراهيم</b></li><li class="chr rv" style="--d:3"><span class="chr-n">10</span><b>هدى فتحي بن عامر</b></li><li class="chr rv" style="--d:4"><span class="chr-n">11</span><b>إبراهيم أحمد بالخير</b></li><li class="chr rv" style="--d:5"><span class="chr-n">12</span><b>سالم محمد بن غربية</b></li><li class="chr rv" style="--d:0"><span class="chr-n">13</span><b>محمد الطيب صقر</b></li><li class="chr rv" style="--d:1"><span class="chr-n">14</span><b>عبدالسلام محمد الحاسي</b></li><li class="chr rv" style="--d:2"><span class="chr-n">15</span><b>نصر علي حسن</b></li><li class="chr rv" style="--d:3"><span class="chr-n">16</span><b>سليمان محمد الشنطي</b></li></ol>
+    <div class="chr-found rv"><span class="tl-badge alt">2013م</span><p>صدور القانون رقم (20) لسنة 2013م بإنشاء هيئة الرقابة الإدارية كهيئة مستقلة ذات شخصية اعتبارية.</p></div>
   </div>
 </section>
 
@@ -2186,7 +2236,19 @@ document.documentElement.classList.add('js');
     {g:'إعلام وثقافة', t:'وكالة الأنباء الليبية', u:'https://lana.gov.ly/'},
     {g:'إعلام وثقافة', t:'دليل الكتب الليبية الإلكتروني', u:'https://dolb.dolj.ly/'}
   ];
-  const REPORTS = [ /* {y:'2025', t:'التقرير السنوي لأعمال الهيئة', u:'reports/2025.pdf'} */ ];
+  // عند رفع الملفات إلى الموقع: غيّر REP_BASE إلى 'reports/' وسمِّ الملفات بنفس المفاتيح
+  const REP_BASE = 'https://aca.gov.ly/storage/public/uploads/website/';
+  const REPORTS = [
+    {y:'2023', t:'التقرير السنوي الثالث والخمسون لهيئة الرقابة الإدارية', u:REP_BASE+'HNx4kfzMl8J015Sq8t9pUegExS7ZtJ6X3Nuk5d7E.pdf'},
+    {y:'2021', t:'التقرير السنوي لسنة 2021', u:REP_BASE+'HoFHbs7ta1WRbFVczUrBzg3bn7ZZfr4b06w70VpT.pdf'},
+    {y:'2020', t:'التقرير السنوي لسنة 2020', u:REP_BASE+'44DG9fCrKDCCCckjm7zjcs7xxDXF0NxXpsKiAmL4.pdf'},
+    {y:'2019', t:'التقرير السنوي لسنة 2019', u:REP_BASE+'HgeGqe8aJAobGZLqkD0fVrNuzPA5UVbW2EpbkUQy.pdf'},
+    {y:'2018', t:'التقرير السنوي لسنة 2018', u:REP_BASE+'u8CSN4KJOPoQgAXFd2j2zWNyXxlYtUnyTPlClRjx.pdf'},
+    {y:'2017', t:'التقرير السنوي لسنة 2017', u:REP_BASE+'eTKAUNs5eJdnwdZjY9lHBNgJ0bzsQgdVS5s7XcCo.pdf'},
+    {y:'2016', t:'التقرير السنوي لسنة 2016', u:REP_BASE+'4X8CZUP2KkuQb6oxJ6EaRGtT72SmVgf3A5UHxwlM.pdf'},
+    {y:'2015', t:'التقرير السنوي لسنة 2015', u:REP_BASE+'L86INuZRRhdxgDVzE7fPc2q3TLiZlxrB0Q5VMuzO.pdf'},
+    {y:'2014', t:'التقرير السنوي لسنة 2014', u:REP_BASE+'h3Qm6qKsppURes74elYxxfWo6QzjD0yVN7aW4vng.pdf'}
+  ];
   const GL = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg>';
   const DOC = '<svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h7M9 16h5"/></svg>';
   const lk = l => `<a class="lk" href="${l.u}" target="_blank" rel="noopener"><span class="ic">${GL}</span><span><b>${l.t}</b><small>${l.u.replace(/^https?:\/\/(www\.)?/,'').replace(/\/.*$/,'')}</small></span></a>`;
@@ -2198,8 +2260,25 @@ document.documentElement.classList.add('js');
   });
   const rg = document.getElementById('reportsGrid');
   if (rg) rg.innerHTML = REPORTS.length
-    ? REPORTS.map(r => `<a class="rp" href="${r.u}" target="_blank" rel="noopener"><span class="yr">${r.y}</span><b>${r.t}</b><span class="sh-more" style="align-self:flex-start;margin-top:8px">تحميل التقرير</span></a>`).join('')
+    ? REPORTS.map((r,i) => `<article class="rp2"><div class="rp2-cv"><img data-img="logo" alt="" src="${IMGS.logo}"><span>${r.y}</span></div><div class="rp2-b"><b>${r.t}</b><small>هيئة الرقابة الإدارية · ${r.y}م</small><div class="rp2-a"><button class="rp2-v" data-rep="${i}">عرض التقرير</button><a class="rp2-d" href="${r.u}" target="_blank" rel="noopener" download aria-label="تحميل ${r.t}"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a></div></div></article>`).join('')
     : `<div class="empty"><span class="ic">${DOC}</span>سيتم نشر التقارير السنوية لأعمال الهيئة في هذه الصفحة.</div>`;
+
+  // ===== عارض التقارير =====
+  const rv = document.getElementById('repViewer');
+  if (rg && rv) {
+    const fr = rv.querySelector('iframe'), ttl = rv.querySelector('.rv-t'), op = rv.querySelector('.rv-open');
+    const close = () => { rv.classList.remove('on'); document.body.classList.remove('rv-open-b'); setTimeout(() => { fr.src = 'about:blank'; }, 400); };
+    rg.addEventListener('click', e => {
+      const b = e.target.closest('[data-rep]'); if (!b) return;
+      const r = REPORTS[+b.dataset.rep];
+      if (matchMedia('(max-width:760px), (pointer:coarse)').matches) { window.open(r.u, '_blank', 'noopener'); return; }
+      ttl.textContent = r.t; op.href = r.u; fr.src = r.u + '#view=FitH';
+      rv.classList.add('on'); document.body.classList.add('rv-open-b');
+    });
+    rv.querySelector('.rv-x').addEventListener('click', close);
+    rv.addEventListener('click', e => { if (e.target === rv) close(); });
+    addEventListener('keydown', e => { if (e.key === 'Escape' && rv.classList.contains('on')) close(); });
+  }
 
 
   // ===== البحث في الموقع =====
@@ -2207,7 +2286,7 @@ document.documentElement.classList.add('js');
     ['عن الهيئة','#/about','تعريف اختصاصات قانون 20 2013 نشأة'],
     ['الهيكل التنظيمي','#/structure','مكاتب ادارات فروع وحدات تنظيم تقسيمات وكيل مستشار تحقيق رقابة'],
     ['فروع الهيئة','#/structure','فرع مكتب وحدة منفذ طرابلس مصراتة سبها الزاوية سرت'],
-    ['رؤساء الهيئة','#/chairmen','رئيس قادربوه رؤساء سابقون تأسيس'],
+    ['رؤساء الهيئة','#/chairmen','رئيس قادربوه رؤساء سابقون تأسيس عمار المبروك الطيف محمد الزروق رجب محمود محي الدين بادي نوري سباق محمد عبد الرحمن موسى العبار محمد محمود حجازي حسنى الصادق الوحيشى عبد القادر محمد البغدادي ابراهيم على إبراهيم هدى فتحي بن عامر إبراهيم أحمد بالخير سالم محمد بن غربية محمد الطيب صقر عبدالسلام محمد الحاسي نصر علي حسن سليمان محمد الشنطي عبدالله محمد قادربوه'],
     ['الأخبار','#/news','خبر اخبار نشاط لقاء'],
     ['الصور والفيديو','#/media','صور فيديو معرض وسائط'],
     ['القرارات والتشريعات','#/decisions','قرار قرارات ايقاف تشريع قانون لائحة 979 987'],
@@ -2304,5 +2383,6 @@ document.documentElement.classList.add('js');
   addEventListener('keydown', e => { if (e.key === 'Escape' && document.body.classList.contains('menu-open')) setMenu(false); });
 })();
 </script>
+
 </body>
 </html>
