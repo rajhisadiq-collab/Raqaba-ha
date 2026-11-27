@@ -617,6 +617,16 @@ body.bot-open .bot{opacity:1;visibility:visible;transform:none;transition:opacit
   .hero h1 span{display:block}.hero h1 span::before{content:none}
   .hero::before{background:linear-gradient(180deg,rgba(18,41,59,.5) 0%,rgba(18,41,59,0) 16%,rgba(18,41,59,0) 40%,rgba(14,30,44,.5) 58%,rgba(12,26,38,.88) 100%)}
 }
+/* v7.3 */
+.hdr-l{margin-inline-start:auto}
+.hdr-l .burger{width:42px;height:42px;align-items:center}
+.hdr-l .burger i:nth-child(2){width:16px;margin-inline-start:6px}
+.rq-mini{height:40px}
+.bot-fab .ph-ic{width:38px;height:38px;fill:initial;stroke:none}
+@media (max-width:640px){.hdr-l{gap:6px}.rq-mini{height:38px}.brand-t b{font-size:14px}}
+.bot-fab{width:64px;height:64px}
+.bot-fab .ph-ic{width:48px;height:48px;transform:rotate(-8deg)}
+@media (max-width:640px){.bot-fab{width:60px;height:60px}.bot-fab .ph-ic{width:44px;height:44px}}
 
 </style>
 </head>
@@ -1010,7 +1020,7 @@ body.bot-open .bot{opacity:1;visibility:visible;transform:none;transition:opacit
   <div class="dr-foot"><button id="drPrev">→ السابق</button><button id="drNext">التالي ←</button></div>
 </aside>
 
-<button class="bot-fab" id="botFab" aria-label="المساعد القانوني"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 7h14M7 7l-3 7h6zM17 7l-3 7h6z"/><path d="M8 21h8"/></svg><span class="tip">المساعد القانوني</span></button>
+<button class="bot-fab" id="botFab" aria-label="المساعد القانوني"><svg class="ph-ic" viewBox="0 0 40 40" aria-hidden="true"><rect x="10" y="3" width="20" height="34" rx="4.5" fill="#fff"/><rect x="11.6" y="4.6" width="16.8" height="30.8" rx="3.2" fill="#F3EFE6"/><rect x="17" y="6" width="6" height="1.8" rx=".9" fill="#12293B"/><rect x="18.5" y="11" width="8.5" height="5" rx="2" fill="#B08D57"/><rect x="13" y="18" width="10" height="6.5" rx="2" fill="#fff" stroke="#D9D2C4" stroke-width=".5"/><rect x="18.5" y="26.5" width="8.5" height="4.2" rx="2" fill="#B08D57"/><circle cx="15.2" cy="21.2" r=".8" fill="#12293B"/><circle cx="18" cy="21.2" r=".8" fill="#12293B"/><circle cx="20.8" cy="21.2" r=".8" fill="#12293B"/><rect x="17" y="33" width="6" height="1" rx=".5" fill="#12293B" opacity=".5"/></svg><span class="tip">المساعد القانوني</span></button>
 <section class="bot" id="bot" role="dialog" aria-label="المساعد القانوني لهيئة الرقابة الإدارية" aria-hidden="true">
   <div class="bot-head"><span class="av"><img data-img="logo" alt=""></span><div><b>المساعد القانوني</b><small><i></i>هيئة الرقابة الإدارية</small></div>
     <div class="acts"><button class="gbtn" id="botNew" aria-label="محادثة جديدة"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.3-5.7M4 4v4h4"/></svg></button><button class="gbtn" id="botClose" aria-label="إغلاق"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div></div>
