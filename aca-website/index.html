@@ -640,6 +640,11 @@ body.bot-open .bot{opacity:1;visibility:visible;transform:none;transition:opacit
 .rq2 li span{color:var(--on-navy-2)}
 .rq2>img{border:0}
 .rq2 .rq-logo b{color:#fff}
+/* v7.5: أيقونة المساعد داخل دائرة */
+.bot-fab,[data-theme="dark"] .bot-fab{width:62px;height:62px;border-radius:50%;background:var(--navy-2);box-shadow:0 14px 30px -12px rgba(10,20,30,.55),inset 0 0 0 2px rgba(199,165,114,.55);display:grid;place-items:center;overflow:hidden}
+.bot-fab:hover{transform:translateY(-3px);background:var(--navy-3)}
+.bot-fab img{height:46px;filter:drop-shadow(0 4px 6px rgba(0,0,0,.35));transform:rotate(-6deg)}
+@media (max-width:640px){.bot-fab{width:56px;height:56px;left:16px;bottom:16px}.bot-fab img{height:42px}}
 
 </style>
 </head>
