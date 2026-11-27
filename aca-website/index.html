@@ -601,6 +601,22 @@ body.bot-open .bot{opacity:1;visibility:visible;transform:none;transition:opacit
 @media (max-width:760px){.gal .vid-c,.gal .vid-f{grid-column:span 2;grid-row:span 1}}
 .rq-mini .rs{display:none}
 @media (max-width:640px){.rq-mini .rl{display:none}.rq-mini .rs{display:inline}}
+/* v7.2: نص الواجهة في الأسفل فوق الشجر، والمبنى واضح */
+.hero{display:flex;flex-direction:column;justify-content:flex-end}
+.hero>img{object-position:58% 45%}
+.hero::before{background:linear-gradient(180deg,rgba(18,41,59,.55) 0%,rgba(18,41,59,0) 18%,rgba(18,41,59,0) 48%,rgba(14,30,44,.45) 66%,rgba(12,26,38,.82) 100%)}
+.hero-t{padding-top:0;padding-bottom:calc(48px + 6vh)}
+.hero h1{max-width:none;color:#fff}
+.hero h1 span{display:inline;color:var(--bronze-xl)}
+.hero h1 span::before{content:" – ";color:rgba(255,255,255,.5);font-weight:200}
+.hero p{color:rgba(255,255,255,.9);text-shadow:0 1px 12px rgba(0,0,0,.35)}
+.hero-t::before{content:"";display:block;width:72px;height:2px;background:var(--bronze-l);margin-bottom:22px}
+@media (max-width:640px){
+  .hero>img{object-position:60% 40%}
+  .hero-t{padding-bottom:calc(44px + 4vh)}
+  .hero h1 span{display:block}.hero h1 span::before{content:none}
+  .hero::before{background:linear-gradient(180deg,rgba(18,41,59,.5) 0%,rgba(18,41,59,0) 16%,rgba(18,41,59,0) 40%,rgba(14,30,44,.5) 58%,rgba(12,26,38,.88) 100%)}
+}
 
 </style>
 </head>
